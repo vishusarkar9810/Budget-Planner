@@ -35,11 +35,17 @@ struct ContentView: View {
                         }
                         .tag(2)
                     
+                    AnalysisView()
+                        .tabItem {
+                            Label("Analysis", systemImage: "chart.xyaxis.line")
+                        }
+                        .tag(3)
+                    
                     SettingsView()
                         .tabItem {
                             Label("Settings", systemImage: "gear")
                         }
-                        .tag(3)
+                        .tag(4)
                 }
                 .environment(budgetModel)
             } else {

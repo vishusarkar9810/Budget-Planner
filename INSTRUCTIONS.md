@@ -33,27 +33,27 @@ This document outlines the development phases for the iOS Budget Planner app usi
   - [x] Spending by category display
   - [x] Category breakdown chart
   - [x] Category filtering
-- [ ] Analysis Features:
-  - [ ] Monthly spending trends
-  - [ ] Budget vs. actual comparison
-  - [ ] Category spending analysis
+- [x] Analysis Features:
+  - [x] Monthly spending trends
+  - [x] Budget vs. actual comparison
+  - [x] Category spending analysis
 
 ## Phase 4: Settings and Customization
 - [x] Settings View:
   - [x] Budget amount configuration
-  - [ ] Currency selection
-  - [ ] Notification preferences
-  - [ ] Theme customization
-- [ ] Custom category management
-- [ ] Export/backup functionality
+  - [x] Currency selection
+  - [x] Notification preferences
+  - [x] Theme customization
+- [x] Custom category management
+- [x] Export/backup functionality
 
 ## Phase 5: Refinement and Optimization
-- [ ] UI polish and animations
-- [ ] Performance optimization
-- [ ] Accessibility improvements
-- [ ] Dark mode support
-- [ ] Error handling and validation
-- [ ] User feedback mechanisms
+- [x] UI polish and animations
+- [x] Performance optimization
+- [x] Accessibility improvements
+- [x] Dark mode support
+- [x] Error handling and validation
+- [x] User feedback mechanisms
 
 ## Phase 6: Testing and Deployment
 - [ ] Unit testing

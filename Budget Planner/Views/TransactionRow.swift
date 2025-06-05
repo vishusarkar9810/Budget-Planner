@@ -32,7 +32,9 @@ struct TransactionRow: View {
             Spacer()
             
             VStack(alignment: .trailing, spacing: 4) {
-                Text(transaction.isExpense ? "-$\(transaction.amount, specifier: "%.2f")" : "+$\(transaction.amount, specifier: "%.2f")")
+                Text(transaction.isExpense ? 
+                     "-\(AppSettings.shared.formatCurrency(transaction.amount))" : 
+                     "+\(AppSettings.shared.formatCurrency(transaction.amount))")
                     .font(.headline)
                     .foregroundColor(transaction.isExpense ? .red : .green)
                 

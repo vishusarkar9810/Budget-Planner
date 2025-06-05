@@ -36,4 +36,16 @@ final class Transaction {
     var categoryEnum: BudgetCategory {
         BudgetCategory(rawValue: category) ?? .other
     }
+    
+    // Function to create an encodable dictionary representation
+    func encodableRepresentation() -> [String: Any] {
+        return [
+            "id": id.uuidString,
+            "amount": amount,
+            "title": title,
+            "category": category,
+            "date": date.timeIntervalSince1970,
+            "isExpense": isExpense
+        ]
+    }
 } 

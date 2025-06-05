@@ -213,7 +213,7 @@ struct CategoryListRow: View {
             Spacer()
             
             VStack(alignment: .trailing) {
-                Text("$\(data.amount, specifier: "%.2f")")
+                Text(AppSettings.shared.formatCurrency(data.amount))
                     .bold()
                 
                 if data.amount > 0 {

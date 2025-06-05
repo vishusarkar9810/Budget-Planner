@@ -61,9 +61,15 @@ struct BudgetSummaryCard: View {
                 .frame(width: 100, height: 100)
                 
                 VStack(alignment: .leading, spacing: 8) {
-                    BudgetRow(title: "Total Budget", amount: budget)
+                    HStack {
+                        Text("Total Budget")
+                            .foregroundColor(.secondary)
+                        Spacer()
+                        Text(AppSettings.shared.formatBudget())
+                            .bold()
+                    }
                     BudgetRow(title: "Spent", amount: spent, textColor: .red)
-                    BudgetRow(title: "Remaining", amount: remaining, textColor: .green)
+                    BudgetRow(title: "Remaining", amount: remaining, textColor: remaining >= 0 ? .green : .red)
                 }
             }
         }
@@ -116,7 +122,7 @@ struct BudgetRow: View {
             Text(title)
                 .foregroundColor(.secondary)
             Spacer()
-            Text("$\(amount, specifier: "%.2f")")
+            Text(AppSettings.shared.formatCurrency(amount))
                 .bold()
                 .foregroundColor(textColor)
         }
@@ -231,7 +237,7 @@ struct CategoryRow: View {
             
             Spacer()
             
-            Text("$\(amount, specifier: "%.2f")")
+            Text(AppSettings.shared.formatCurrency(amount))
                 .bold()
             
             Text("(\(Int(percentage * 100))%)")

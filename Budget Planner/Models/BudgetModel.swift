@@ -17,7 +17,12 @@ final class BudgetModel {
     private var transactionsDescriptor: FetchDescriptor<Transaction>
     
     var transactions: [Transaction] = []
-    var budget: Double = 1000
+    
+    // Budget is now computed from AppSettings
+    var budget: Double {
+        get { AppSettings.shared.getCurrentPeriodBudget() }
+        set { AppSettings.shared.updateBudgetAmount(newValue) }
+    }
     
     init(modelContainer: ModelContainer) {
         self.modelContext = ModelContext(modelContainer)
@@ -73,6 +78,40 @@ final class BudgetModel {
             try modelContext.save()
         } catch {
             print("Failed to save context: \(error)")
+        }
+    }
+    
+    // Reset all data in the app
+    func resetAllData() {
+        do {
+            // Fetch all transactions directly from the database
+            let fetchDescriptor = FetchDescriptor<Transaction>()
+            let allTransactions = try modelContext.fetch(fetchDescriptor)
+            
+            // Clear array first to avoid UI updates during deletion
+            transactions = []
+            
+            // Delete all transactions
+            for transaction in allTransactions {
+                modelContext.delete(transaction)
+            }
+            
+            // Save changes to clear transactions
+            try modelContext.save()
+            
+            // Reset all settings
+            AppSettings.shared.resetToDefaults()
+            
+            // After everything is reset, fetch empty transactions to refresh UI
+            fetchTransactions()
+            
+            print("Data reset successful")
+            return
+        } catch {
+            print("Error during reset: \(error.localizedDescription)")
+            // Even if an error occurs, try to put the app in a clean state
+            transactions = []
+            AppSettings.shared.resetToDefaults()
         }
     }
     
