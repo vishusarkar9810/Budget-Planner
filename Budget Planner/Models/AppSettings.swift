@@ -27,6 +27,7 @@ final class AppSettings {
         static let budgetPeriod = "budgetPeriod"
         static let dailyBudgetAmount = "dailyBudgetAmount"
         static let hasCompletedOnboarding = "hasCompletedOnboarding"
+        static let hasCurrencyBeenDetected = "hasCurrencyBeenDetected"
     }
     
     // Private init for singleton
@@ -39,6 +40,13 @@ final class AppSettings {
         if let currencyString = UserDefaults.standard.string(forKey: Keys.currency),
            let currency = Currency(rawValue: currencyString) {
             selectedCurrency = currency
+        } else {
+            // If no currency has been set, detect and set the currency based on device locale
+            let hasCurrencyBeenDetected = UserDefaults.standard.bool(forKey: Keys.hasCurrencyBeenDetected)
+            if !hasCurrencyBeenDetected {
+                detectAndSetCurrency()
+                UserDefaults.standard.set(true, forKey: Keys.hasCurrencyBeenDetected)
+            }
         }
         
         if let themeString = UserDefaults.standard.string(forKey: Keys.theme),
@@ -57,6 +65,87 @@ final class AppSettings {
         }
         
         hasCompletedOnboarding = UserDefaults.standard.bool(forKey: Keys.hasCompletedOnboarding)
+    }
+    
+    // Detect and set the currency based on device locale
+    private func detectAndSetCurrency() {
+        // Get the current locale's region code
+        let currentRegionCode = Locale.current.region?.identifier.uppercased() ?? ""
+        
+        // Match the region code to a currency
+        switch currentRegionCode {
+        case "US": selectedCurrency = .usd
+        case "GB": selectedCurrency = .gbp
+        case "EU", "DE", "FR", "IT", "ES", "NL", "BE", "PT", "AT", "IE", "FI", "SK", "SI", "LV", "LT", "EE", "GR", "MT", "CY", "LU":
+            selectedCurrency = .eur
+        case "JP": selectedCurrency = .jpy
+        case "CH": selectedCurrency = .chf
+        case "CA": selectedCurrency = .cad
+        case "AU": selectedCurrency = .aud
+        case "NZ": selectedCurrency = .nzd
+        case "CN": selectedCurrency = .cny
+        case "HK": selectedCurrency = .hkd
+        case "SG": selectedCurrency = .sgd
+        case "IN": selectedCurrency = .inr
+        case "KR": selectedCurrency = .krw
+        case "TH": selectedCurrency = .thb
+        case "ID": selectedCurrency = .idr
+        case "MY": selectedCurrency = .myr
+        case "PH": selectedCurrency = .php
+        case "TW": selectedCurrency = .twd
+        case "PK": selectedCurrency = .pkr
+        case "BD": selectedCurrency = .bdt
+        case "VN": selectedCurrency = .vnd
+        case "SE": selectedCurrency = .sek
+        case "NO": selectedCurrency = .nok
+        case "DK": selectedCurrency = .dkk
+        case "PL": selectedCurrency = .pln
+        case "CZ": selectedCurrency = .czk
+        case "HU": selectedCurrency = .huf
+        case "RO": selectedCurrency = .ron
+        case "BG": selectedCurrency = .bgn
+        case "HR": selectedCurrency = .hrk
+        case "RS": selectedCurrency = .rsd
+        case "IS": selectedCurrency = .isk
+        case "TR": selectedCurrency = .lira
+        case "RU": selectedCurrency = .rub
+        case "UA": selectedCurrency = .uah
+        case "IL": selectedCurrency = .ils
+        case "AE": selectedCurrency = .aed
+        case "SA": selectedCurrency = .sar
+        case "QA": selectedCurrency = .qar
+        case "KW": selectedCurrency = .kwd
+        case "BH": selectedCurrency = .bhd
+        case "OM": selectedCurrency = .omr
+        case "EG": selectedCurrency = .egp
+        case "MX": selectedCurrency = .mxn
+        case "BR": selectedCurrency = .brl
+        case "AR": selectedCurrency = .ars
+        case "CL": selectedCurrency = .clp
+        case "CO": selectedCurrency = .cop
+        case "PE": selectedCurrency = .pen
+        case "UY": selectedCurrency = .uyu
+        case "ZA": selectedCurrency = .zar
+        case "NG": selectedCurrency = .ngn
+        case "KE": selectedCurrency = .kes
+        case "GH": selectedCurrency = .ghs
+        case "MA": selectedCurrency = .mad
+        case "SN", "BJ", "BF", "CI", "GW", "ML", "NE", "TG":
+            selectedCurrency = .xof
+        case "CM", "CF", "TD", "CG", "GQ", "GA":
+            selectedCurrency = .xaf
+        case "FJ": selectedCurrency = .fjd
+        case "PG": selectedCurrency = .pgk
+        case "TO": selectedCurrency = .top
+        case "VU": selectedCurrency = .vuv
+        case "WS": selectedCurrency = .wst
+        default:
+            // Default to USD if region not recognized
+            selectedCurrency = .usd
+        }
+        
+        // Save the detected currency
+        saveSettings()
     }
     
     // Save settings to UserDefaults
@@ -135,6 +224,7 @@ final class AppSettings {
         UserDefaults.standard.removeObject(forKey: Keys.theme)
         UserDefaults.standard.removeObject(forKey: Keys.budgetPeriod)
         UserDefaults.standard.removeObject(forKey: Keys.dailyBudgetAmount)
+        UserDefaults.standard.removeObject(forKey: Keys.hasCurrencyBeenDetected)
         
         // Save defaults
         saveSettings()
