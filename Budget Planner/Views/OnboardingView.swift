@@ -59,24 +59,7 @@ struct OnboardingView: View {
             .ignoresSafeArea()
             
             VStack {
-                // Skip button
-                if !showGetStarted {
-                    HStack {
-                        Spacer()
-                        Button("Skip") {
-                            withAnimation {
-                                // If coordinator provided completion handler, use it
-                                if let onComplete = onComplete {
-                                    onComplete()
-                                } else {
-                                    showGetStarted = true
-                                }
-                            }
-                        }
-                        .padding()
-                        .foregroundColor(.secondary)
-                    }
-                }
+                // Skip button removed
                 
                 // Content
                 if showGetStarted {

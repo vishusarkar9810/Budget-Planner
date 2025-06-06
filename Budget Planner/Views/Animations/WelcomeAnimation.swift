@@ -23,18 +23,7 @@ struct WelcomeAnimation: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 30) {
-                // Skip button in top right
-                HStack {
-                    Spacer()
-                    Button("Skip") {
-                        withAnimation {
-                            isAnimationComplete = true
-                        }
-                    }
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                    .padding()
-                }
+                // Skip button removed
                 
                 Spacer()
                 
