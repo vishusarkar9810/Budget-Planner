@@ -13,7 +13,7 @@ struct AddTransactionView: View {
     
     @State private var amount = ""
     @State private var title = ""
-    @State private var category = BudgetCategory.food.rawValue
+    @State private var category = BudgetCategory.groceries.rawValue
     @State private var date = Date()
     @State private var isExpense = true
     
@@ -32,7 +32,7 @@ struct AddTransactionView: View {
                     TextField("Title", text: $title)
                     
                     HStack {
-                        Text("$")
+                        Text(AppSettings.shared.selectedCurrency.symbol)
                         TextField("Amount", text: $amount)
                             .keyboardType(.decimalPad)
                     }

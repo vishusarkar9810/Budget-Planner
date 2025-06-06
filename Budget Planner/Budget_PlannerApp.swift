@@ -33,8 +33,6 @@ struct Budget_PlannerApp: App {
             return .dark
         case .system:
             return nil
-        default:
-            return nil // For colored themes, we use system default
         }
     }
 }

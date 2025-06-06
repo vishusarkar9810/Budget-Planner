@@ -36,42 +36,7 @@ enum AppTheme: String, CaseIterable, Identifiable {
     }
 }
 
-// Currency for selection
-enum Currency: String, CaseIterable, Identifiable {
-    case usd = "USD"
-    case eur = "EUR"
-    case gbp = "GBP"
-    case jpy = "JPY"
-    case cad = "CAD"
-    case aud = "AUD"
-    case inr = "INR"
-    
-    var id: String { rawValue }
-    
-    var symbol: String {
-        switch self {
-        case .usd: return "$"
-        case .eur: return "€"
-        case .gbp: return "£"
-        case .jpy: return "¥"
-        case .cad: return "C$"
-        case .aud: return "A$"
-        case .inr: return "₹"
-        }
-    }
-    
-    var displayName: String {
-        switch self {
-        case .usd: return "US Dollar ($)"
-        case .eur: return "Euro (€)"
-        case .gbp: return "British Pound (£)"
-        case .jpy: return "Japanese Yen (¥)"
-        case .cad: return "Canadian Dollar (C$)"
-        case .aud: return "Australian Dollar (A$)"
-        case .inr: return "Indian Rupee (₹)"
-        }
-    }
-}
+// Currency is now defined in Currency.swift
 
 struct SettingsView: View {
     @Environment(BudgetModel.self) private var model
@@ -83,7 +48,6 @@ struct SettingsView: View {
     @State private var selectedBudgetPeriod: BudgetPeriod = AppSettings.shared.budgetPeriod
     @State private var notificationsEnabled = false
     @State private var dailyReminderTime = Date()
-    @State private var showCategoryManagement = false
     @State private var exportData = false
     @State private var showExportSheet = false
     @State private var exportUrl: URL?
@@ -149,14 +113,7 @@ struct SettingsView: View {
                     }
                 }
                 
-                Section("Categories") {
-                    Button {
-                        showCategoryManagement = true
-                    } label: {
-                        Text("Manage Custom Categories")
-                    }
-                }
-                
+
                 Section("Data Management") {
                     Button {
                         exportBudgetData()
@@ -217,9 +174,7 @@ struct SettingsView: View {
                     }
                 )
             }
-            .sheet(isPresented: $showCategoryManagement) {
-                CategoryManagementView()
-            }
+
             .sheet(isPresented: $showExportSheet) {
                 if let url = exportUrl {
                     ActivityViewController(activityItems: [url])
@@ -322,65 +277,7 @@ struct SettingsView: View {
     }
 }
 
-struct CategoryManagementView: View {
-    @Environment(BudgetModel.self) private var model
-    @Environment(\.dismiss) private var dismiss
-    @State private var customCategories: [BudgetCategory] = BudgetCategory.allCases
-    @State private var newCategoryName = ""
-    @State private var showAddCategory = false
-    
-    var body: some View {
-        NavigationStack {
-            List {
-                ForEach(customCategories) { category in
-                    HStack {
-                        Image(systemName: category.icon)
-                            .foregroundColor(category.color)
-                        
-                        Text(category.displayName)
-                    }
-                }
-                .onDelete(perform: deleteCategory)
-            }
-            .navigationTitle("Manage Categories")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add") {
-                        showAddCategory = true
-                    }
-                }
-            }
-            .alert("Add Category", isPresented: $showAddCategory) {
-                TextField("Category Name", text: $newCategoryName)
-                
-                Button("Cancel", role: .cancel) {
-                    newCategoryName = ""
-                }
-                
-                Button("Add") {
-                    // In a real implementation, we would add the category
-                    // For this demo, we'll just show the alert
-                    newCategoryName = ""
-                }
-            } message: {
-                Text("Enter a name for your new category")
-            }
-        }
-    }
-    
-    private func deleteCategory(at offsets: IndexSet) {
-        // In a real implementation, we would delete the category
-        // For this demo, we'll just remove it from the array
-        // Make sure we don't delete the built-in categories
-        // customCategories.remove(atOffsets: offsets)
-    }
-}
+
 
 
 

@@ -83,11 +83,7 @@ final class AppSettings {
     
     // Format currency amount
     func formatCurrency(_ amount: Double) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.currencySymbol = selectedCurrency.symbol
-        formatter.maximumFractionDigits = 2
-        return formatter.string(from: NSNumber(value: amount)) ?? "\(selectedCurrency.symbol)\(amount)"
+        return selectedCurrency.format(amount)
     }
     
     // Update budget period
