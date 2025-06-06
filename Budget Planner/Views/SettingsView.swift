@@ -51,6 +51,11 @@ struct SettingsView: View {
     @State private var exportData = false
     @State private var showExportSheet = false
     @State private var exportUrl: URL?
+    @State private var showDocumentPicker = false
+    @State private var showImportAlert = false
+    @State private var importAlertTitle = ""
+    @State private var importAlertMessage = ""
+    @State private var importSuccess = false
     
     var body: some View {
         NavigationStack {
@@ -122,7 +127,7 @@ struct SettingsView: View {
                     }
                     
                     Button {
-                        // Show import file picker (implementation needed)
+                        showDocumentPicker = true
                     } label: {
                         Label("Import Data", systemImage: "square.and.arrow.down")
                     }
@@ -187,6 +192,51 @@ struct SettingsView: View {
                 }
             } message: {
                 Text("This will delete all transactions and reset your budget. This action cannot be undone.")
+            }
+
+            .fileImporter(
+                isPresented: $showDocumentPicker,
+                allowedContentTypes: [.commaSeparatedText],
+                allowsMultipleSelection: false
+            ) { result in
+                do {
+                    let selectedFile = try result.get().first!
+                    
+                    if selectedFile.startAccessingSecurityScopedResource() {
+                        defer { selectedFile.stopAccessingSecurityScopedResource() }
+                        
+                        let data = try Data(contentsOf: selectedFile)
+                        if let csvString = String(data: data, encoding: .utf8) {
+                            let importedTransactions = importTransactionsFromCSV(csvString)
+                            
+                            if importedTransactions.isEmpty {
+                                importAlertTitle = "Import Failed"
+                                importAlertMessage = "No valid transactions found in the file."
+                                importSuccess = false
+                            } else {
+                                // Add the imported transactions to the model
+                                for transaction in importedTransactions {
+                                    model.addTransaction(transaction)
+                                }
+                                importAlertTitle = "Import Successful"
+                                importAlertMessage = "Successfully imported \(importedTransactions.count) transactions."
+                                importSuccess = true
+                            }
+                            showImportAlert = true
+                        }
+                    }
+                } catch {
+                    print("Error importing file: \(error.localizedDescription)")
+                    importAlertTitle = "Import Failed"
+                    importAlertMessage = "Error: \(error.localizedDescription)"
+                    importSuccess = false
+                    showImportAlert = true
+                }
+            }
+            .alert(importAlertTitle, isPresented: $showImportAlert) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text(importAlertMessage)
             }
         }
     }
