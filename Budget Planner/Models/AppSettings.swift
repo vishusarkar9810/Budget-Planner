@@ -17,12 +17,16 @@ final class AppSettings {
     var budgetPeriod: BudgetPeriod = .monthly
     var dailyBudgetAmount: Double = 33.33 // Default ~$1000/month
     
+    // Onboarding
+    var hasCompletedOnboarding: Bool = false
+    
     // UserDefaults keys
     private enum Keys {
         static let currency = "selectedCurrency"
         static let theme = "selectedTheme"
         static let budgetPeriod = "budgetPeriod"
         static let dailyBudgetAmount = "dailyBudgetAmount"
+        static let hasCompletedOnboarding = "hasCompletedOnboarding"
     }
     
     // Private init for singleton
@@ -51,6 +55,8 @@ final class AppSettings {
         if savedDailyBudget > 0 {
             dailyBudgetAmount = savedDailyBudget
         }
+        
+        hasCompletedOnboarding = UserDefaults.standard.bool(forKey: Keys.hasCompletedOnboarding)
     }
     
     // Save settings to UserDefaults
@@ -59,6 +65,13 @@ final class AppSettings {
         UserDefaults.standard.set(selectedTheme.rawValue, forKey: Keys.theme)
         UserDefaults.standard.set(budgetPeriod.rawValue, forKey: Keys.budgetPeriod)
         UserDefaults.standard.set(dailyBudgetAmount, forKey: Keys.dailyBudgetAmount)
+        UserDefaults.standard.set(hasCompletedOnboarding, forKey: Keys.hasCompletedOnboarding)
+    }
+    
+    // Mark onboarding as completed
+    func completeOnboarding() {
+        hasCompletedOnboarding = true
+        saveSettings()
     }
     
     // Update currency and save

@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var modelContainer: ModelContainer?
     @State private var budgetModel: BudgetModel?
     @State private var selectedTab = 0
+    @State private var showOnboarding = !AppSettings.shared.hasCompletedOnboarding
     
     var body: some View {
         Group {
@@ -48,6 +49,13 @@ struct ContentView: View {
                         .tag(4)
                 }
                 .environment(budgetModel)
+                .fullScreenCover(isPresented: $showOnboarding) {
+                    OnboardingView()
+                        .onDisappear {
+                            // In case the user manually dismisses the onboarding
+                            AppSettings.shared.completeOnboarding()
+                        }
+                }
             } else {
                 ProgressView()
                     .onAppear {
@@ -59,10 +67,13 @@ struct ContentView: View {
     
     private func setupModel() {
         do {
-            let config = ModelConfiguration()
-            let container = try ModelContainer(for: Transaction.self, configurations: config)
-            self.modelContainer = container
-            self.budgetModel = BudgetModel(modelContainer: container)
+            let schema = Schema([Transaction.self])
+            let config = ModelConfiguration("BudgetPlanner", schema: schema)
+            let container = try ModelContainer(for: schema, configurations: [config])
+            
+            modelContainer = container
+            budgetModel = BudgetModel(modelContainer: container)
+            
         } catch {
             print("Failed to create model container: \(error)")
         }
