@@ -10,41 +10,49 @@ import SwiftUI
 struct OnboardingView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var currentPage = 0
-    @State private var pageOffset: CGFloat = 0
+    @State private var isAnimating = false
     @State private var showGetStarted = false
+    
+    // Optional completion handler for when onboarding is finished
+    var onComplete: (() -> Void)?
     
     let onboardingPages = [
         OnboardingPage(
-            title: "Track Your Expenses",
-            description: "Easily record and categorize your daily spending to stay on top of your finances.",
-            imageName: "chart.bar.fill",
-            accentColor: .blue
+            title: "Track All Your Finances In One Place",
+            description: "Easily record and categorize your daily spending to stay on top of your finances with beautiful visualizations.",
+            imageName: "chart.bar.xaxis",
+            accentColor: .blue,
+            animationType: .chart
         ),
         OnboardingPage(
-            title: "Set Budget Goals",
-            description: "Create personalized budgets for daily, weekly, monthly or custom periods.",
-            imageName: "target",
-            accentColor: .green
+            title: "Own Your Financial Journey",
+            description: "Keep a detailed log of your financial goals and track your progress over time with smart budget management.",
+            imageName: "arrow.up.forward.circle.fill",
+            accentColor: .green,
+            animationType: .budget
         ),
         OnboardingPage(
-            title: "Analyze Spending",
-            description: "Visualize your spending patterns with beautiful charts and breakdowns.",
-            imageName: "chart.pie.fill",
-            accentColor: .purple
-        ),
-        OnboardingPage(
-            title: "Global Currency Support",
-            description: "Track your finances in over 60 currencies from around the world.",
-            imageName: "dollarsign.circle",
-            accentColor: .orange
+            title: "Welcome to Budget Planner",
+            description: "The easiest and most efficient way to manage your money",
+            imageName: "star.fill",
+            accentColor: .orange,
+            animationType: .testimonial,
+            testimonial: Testimonial(
+                text: "Exactly what I needed! Helped me save $350 in the first month!",
+                rating: 5,
+                username: "Happy User"
+            )
         )
     ]
     
     var body: some View {
         ZStack {
-            // Background color gradient
+            // Background gradient that matches the current page's accent color
             LinearGradient(
-                gradient: Gradient(colors: [Color.white, Color(UIColor.systemBackground)]),
+                gradient: Gradient(colors: [
+                    onboardingPages[currentPage].accentColor.opacity(0.1),
+                    Color(UIColor.systemBackground)
+                ]),
                 startPoint: .top,
                 endPoint: .bottom
             )
@@ -57,7 +65,12 @@ struct OnboardingView: View {
                         Spacer()
                         Button("Skip") {
                             withAnimation {
-                                showGetStarted = true
+                                // If coordinator provided completion handler, use it
+                                if let onComplete = onComplete {
+                                    onComplete()
+                                } else {
+                                    showGetStarted = true
+                                }
                             }
                         }
                         .padding()
@@ -74,6 +87,14 @@ struct OnboardingView: View {
                         ForEach(0..<onboardingPages.count, id: \.self) { index in
                             pageView(for: onboardingPages[index])
                                 .tag(index)
+                                .onAppear {
+                                    // Trigger animation when page appears
+                                    isAnimating = true
+                                }
+                                .onDisappear {
+                                    // Reset animation when page disappears
+                                    isAnimating = false
+                                }
                         }
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
@@ -82,35 +103,45 @@ struct OnboardingView: View {
                     // Page indicator
                     HStack(spacing: 12) {
                         ForEach(0..<onboardingPages.count, id: \.self) { index in
-                            Circle()
+                            Capsule()
                                 .fill(currentPage == index ? 
                                       onboardingPages[index].accentColor : Color.gray.opacity(0.3))
-                                .frame(width: 10, height: 10)
-                                .scaleEffect(currentPage == index ? 1.2 : 1.0)
+                                .frame(width: currentPage == index ? 20 : 10, height: 10)
                                 .animation(.spring(), value: currentPage)
                         }
                     }
                     .padding(.bottom, 20)
                     
-                    // Next button
+                    // Continue button
                     Button {
                         withAnimation {
                             if currentPage < onboardingPages.count - 1 {
                                 currentPage += 1
                             } else {
-                                showGetStarted = true
+                                // If coordinator provided completion handler, use it
+                                if let onComplete = onComplete {
+                                    onComplete()
+                                } else {
+                                    showGetStarted = true
+                                }
                             }
                         }
                     } label: {
-                        Text(currentPage < onboardingPages.count - 1 ? "Next" : "Get Started")
+                        Text("Continue")
                             .fontWeight(.bold)
                             .foregroundColor(.white)
-                            .frame(width: 200, height: 50)
+                            .frame(width: 300, height: 60)
                             .background(onboardingPages[currentPage].accentColor)
-                            .cornerRadius(15)
+                            .cornerRadius(30)
                             .shadow(color: onboardingPages[currentPage].accentColor.opacity(0.5), radius: 10, x: 0, y: 5)
                     }
-                    .padding(.bottom, 50)
+                    .padding(.bottom, 30)
+                    
+                    // Trusted by users text
+                    Text("Trusted by 10,000+ Users")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                        .padding(.bottom)
                 }
             }
         }
@@ -119,40 +150,42 @@ struct OnboardingView: View {
     // Page view for each onboarding page
     private func pageView(for page: OnboardingPage) -> some View {
         VStack(spacing: 20) {
-            Spacer()
-            
-            // Icon with animated effect
-            Image(systemName: page.imageName)
-                .font(.system(size: 100))
-                .foregroundColor(page.accentColor)
-                .symbolEffect(.bounce, options: .repeating, value: currentPage)
-                .padding()
-                .background(
-                    Circle()
-                        .fill(page.accentColor.opacity(0.1))
-                        .frame(width: 180, height: 180)
-                )
-                .padding(.bottom, 40)
-            
-            // Title with scaling animation
+            // Title with dynamic font
             Text(page.title)
-                .font(.system(size: 28, weight: .bold, design: .rounded))
+                .font(.system(size: 32, weight: .bold, design: .rounded))
                 .foregroundColor(.primary)
-                .padding(.horizontal)
-                .scaleEffect(currentPage == onboardingPages.firstIndex(where: { $0.title == page.title }) ?? 0 ? 1.0 : 0.8)
-                .animation(.spring(response: 0.5, dampingFraction: 0.6), value: currentPage)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 20)
+                .padding(.top, 60)
+                .opacity(isAnimating ? 1 : 0)
+                .offset(y: isAnimating ? 0 : 20)
+                .animation(.easeOut(duration: 0.5).delay(0.2), value: isAnimating)
             
             // Description with fade animation
             Text(page.description)
                 .font(.body)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.secondary)
-                .padding(.horizontal, 40)
+                .padding(.horizontal, 30)
                 .padding(.top, 10)
-                .opacity(currentPage == onboardingPages.firstIndex(where: { $0.title == page.title }) ?? 0 ? 1.0 : 0.5)
-                .animation(.easeIn(duration: 0.3), value: currentPage)
+                .opacity(isAnimating ? 1 : 0)
+                .offset(y: isAnimating ? 0 : 20)
+                .animation(.easeOut(duration: 0.5).delay(0.4), value: isAnimating)
             
             Spacer()
+            
+            // Different animation types based on the page
+            switch page.animationType {
+            case .chart:
+                BudgetChartAnimation(accentColor: page.accentColor)
+            case .budget:
+                BudgetPersonAnimation(accentColor: page.accentColor)
+            case .testimonial:
+                if let testimonial = page.testimonial {
+                    TestimonialAnimation(testimonial: testimonial, accentColor: page.accentColor)
+                }
+            }
+            
             Spacer()
         }
     }
@@ -173,16 +206,26 @@ struct OnboardingView: View {
                     .foregroundColor(.blue)
                     .symbolEffect(.pulse, options: .repeating)
             }
+            .scaleEffect(isAnimating ? 1 : 0.8)
+            .opacity(isAnimating ? 1 : 0)
+            .animation(.spring(response: 0.5, dampingFraction: 0.6), value: isAnimating)
+            .onAppear { isAnimating = true }
             
             Text("Welcome to Budget Planner!")
                 .font(.system(size: 28, weight: .bold, design: .rounded))
                 .padding(.top)
+                .opacity(isAnimating ? 1 : 0)
+                .offset(y: isAnimating ? 0 : 20)
+                .animation(.easeOut(duration: 0.5).delay(0.2), value: isAnimating)
             
             Text("Your journey to financial wellness starts now")
                 .font(.body)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.secondary)
                 .padding(.horizontal, 40)
+                .opacity(isAnimating ? 1 : 0)
+                .offset(y: isAnimating ? 0 : 20)
+                .animation(.easeOut(duration: 0.5).delay(0.4), value: isAnimating)
             
             Spacer()
             
@@ -194,12 +237,22 @@ struct OnboardingView: View {
                 Text("Get Started")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-                    .frame(width: 250, height: 60)
+                    .frame(width: 300, height: 60)
                     .background(Color.blue)
-                    .cornerRadius(20)
+                    .cornerRadius(30)
                     .shadow(color: Color.blue.opacity(0.4), radius: 10, x: 0, y: 5)
             }
+            .opacity(isAnimating ? 1 : 0)
+            .offset(y: isAnimating ? 0 : 20)
+            .animation(.easeOut(duration: 0.5).delay(0.6), value: isAnimating)
             .padding(.bottom, 60)
+            
+            Text("Trusted by 10,000+ Users")
+                .font(.footnote)
+                .foregroundColor(.secondary)
+                .padding(.bottom)
+                .opacity(isAnimating ? 1 : 0)
+                .animation(.easeOut(duration: 0.5).delay(0.8), value: isAnimating)
         }
     }
 }
@@ -210,6 +263,21 @@ struct OnboardingPage {
     let description: String
     let imageName: String
     let accentColor: Color
+    let animationType: AnimationType
+    var testimonial: Testimonial? = nil
+    
+    enum AnimationType {
+        case chart
+        case budget
+        case testimonial
+    }
+}
+
+// Testimonial model
+struct Testimonial {
+    let text: String
+    let rating: Int
+    let username: String
 }
 
 #Preview {

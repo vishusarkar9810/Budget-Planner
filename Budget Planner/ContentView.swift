@@ -50,7 +50,7 @@ struct ContentView: View {
                 }
                 .environment(budgetModel)
                 .fullScreenCover(isPresented: $showOnboarding) {
-                    OnboardingView()
+                    OnboardingCoordinator()
                         .onDisappear {
                             // In case the user manually dismisses the onboarding
                             AppSettings.shared.completeOnboarding()
