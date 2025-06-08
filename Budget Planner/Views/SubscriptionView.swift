@@ -22,7 +22,7 @@ struct SubscriptionView: View {
                             .foregroundColor(.yellow)
                             .padding(.bottom, 10)
                         
-                        Text("Budget Planner Premium")
+                        Text("Premium Features")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                         
@@ -40,7 +40,6 @@ struct SubscriptionView: View {
                         FeatureRow(icon: "chart.line.uptrend.xyaxis", title: "Advanced Analytics", description: "Detailed spending patterns and insights")
                         FeatureRow(icon: "doc.on.doc", title: "Unlimited Categories", description: "Create as many budget categories as you need")
                         FeatureRow(icon: "arrow.up.arrow.down", title: "Custom Budget Periods", description: "Weekly, bi-weekly, and custom periods")
-                        FeatureRow(icon: "icloud.and.arrow.up", title: "Cloud Backup", description: "Keep your data safe and synced")
                         FeatureRow(icon: "bell.badge", title: "Custom Reminders", description: "Set personalized budget alerts")
                     }
                     .padding(.horizontal, 30)
