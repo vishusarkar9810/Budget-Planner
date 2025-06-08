@@ -6,6 +6,7 @@ struct AnalysisView: View {
     @Environment(BudgetModel.self) private var model
     @State private var selectedTimeFrame: TimeFrame = .month
     @State private var selectedAnalysisType: AnalysisType = .monthlyTrends
+    @State private var showSubscriptionView = false
     
     enum TimeFrame: String, CaseIterable, Identifiable {
         case week = "Week"
@@ -21,6 +22,24 @@ struct AnalysisView: View {
         case categoryAnalysis = "Category Analysis"
         
         var id: String { rawValue }
+        
+        // Determine if this analysis type requires premium
+        var requiresPremium: Bool {
+            switch self {
+            case .monthlyTrends:
+                return false // Basic feature available to all
+            case .budgetVsActual, .categoryAnalysis:
+                return true // Premium features
+            }
+        }
+        
+        // Display name with premium indicator if needed
+        var displayName: String {
+            if requiresPremium {
+                return "\(rawValue) ✨"
+            }
+            return rawValue
+        }
     }
     
     var body: some View {
@@ -28,7 +47,7 @@ struct AnalysisView: View {
             VStack {
                 Picker("Analysis Type", selection: $selectedAnalysisType) {
                     ForEach(AnalysisType.allCases) { type in
-                        Text(type.rawValue).tag(type)
+                        Text(type.displayName).tag(type)
                     }
                 }
                 .pickerStyle(.segmented)
@@ -43,18 +62,44 @@ struct AnalysisView: View {
                 .padding(.horizontal)
                 
                 ScrollView {
-                    switch selectedAnalysisType {
-                    case .monthlyTrends:
-                        MonthlyTrendsView(timeFrame: selectedTimeFrame)
-                    case .budgetVsActual:
-                        BudgetVsActualView(timeFrame: selectedTimeFrame)
-                    case .categoryAnalysis:
-                        CategoryAnalysisView(timeFrame: selectedTimeFrame)
+                    if selectedAnalysisType.requiresPremium && !AppSettings.shared.isSubscribed {
+                        // Show premium feature overlay if not subscribed
+                        VStack {
+                            Spacer()
+                            PremiumFeatureOverlay(featureName: selectedAnalysisType.rawValue)
+                            Spacer()
+                        }
+                        .frame(minHeight: 500)
+                    } else {
+                        // Show the selected analysis view
+                        switch selectedAnalysisType {
+                        case .monthlyTrends:
+                            MonthlyTrendsView(timeFrame: selectedTimeFrame)
+                        case .budgetVsActual:
+                            BudgetVsActualView(timeFrame: selectedTimeFrame)
+                        case .categoryAnalysis:
+                            CategoryAnalysisView(timeFrame: selectedTimeFrame)
+                        }
                     }
                 }
                 .padding()
             }
             .navigationTitle("Analysis")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    if !AppSettings.shared.isSubscribed {
+                        Button {
+                            showSubscriptionView = true
+                        } label: {
+                            Label("Premium", systemImage: "crown.fill")
+                                .foregroundColor(.yellow)
+                        }
+                    }
+                }
+            }
+            .sheet(isPresented: $showSubscriptionView) {
+                SubscriptionView()
+            }
         }
     }
 }

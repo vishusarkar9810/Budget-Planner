@@ -7,11 +7,15 @@
 
 import SwiftUI
 import SwiftData
+import StoreKit
 
 @main
 struct Budget_PlannerApp: App {
     @State private var appSettings = AppSettings.shared
     @Environment(\.colorScheme) private var colorScheme
+    
+    // Initialize subscription manager
+    private let subscriptionManager = SubscriptionManager.shared
     
     var body: some Scene {
         WindowGroup {
@@ -22,6 +26,10 @@ struct Budget_PlannerApp: App {
                     // Load saved settings when app starts
                     appSettings.loadSettings()
                 }
+        }
+        .onChange(of: subscriptionManager.isSubscribed) { _, isSubscribed in
+            // Update app settings when subscription status changes
+            appSettings.updateSubscriptionStatus(isSubscribed: isSubscribed)
         }
     }
     

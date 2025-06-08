@@ -20,6 +20,14 @@ final class AppSettings {
     // Onboarding
     var hasCompletedOnboarding: Bool = false
     
+    // Subscription status
+    var isSubscribed: Bool = false
+    
+    // Premium features access
+    var premiumFeaturesEnabled: Bool {
+        return isSubscribed
+    }
+    
     // UserDefaults keys
     private enum Keys {
         static let currency = "selectedCurrency"
@@ -28,6 +36,7 @@ final class AppSettings {
         static let dailyBudgetAmount = "dailyBudgetAmount"
         static let hasCompletedOnboarding = "hasCompletedOnboarding"
         static let hasCurrencyBeenDetected = "hasCurrencyBeenDetected"
+        static let isSubscribed = "isSubscribed"
     }
     
     // Private init for singleton
@@ -65,6 +74,9 @@ final class AppSettings {
         }
         
         hasCompletedOnboarding = UserDefaults.standard.bool(forKey: Keys.hasCompletedOnboarding)
+        
+        // Load subscription status
+        isSubscribed = UserDefaults.standard.bool(forKey: Keys.isSubscribed)
     }
     
     // Detect and set the currency based on device locale
@@ -155,6 +167,7 @@ final class AppSettings {
         UserDefaults.standard.set(budgetPeriod.rawValue, forKey: Keys.budgetPeriod)
         UserDefaults.standard.set(dailyBudgetAmount, forKey: Keys.dailyBudgetAmount)
         UserDefaults.standard.set(hasCompletedOnboarding, forKey: Keys.hasCompletedOnboarding)
+        UserDefaults.standard.set(isSubscribed, forKey: Keys.isSubscribed)
     }
     
     // Mark onboarding as completed
@@ -211,6 +224,17 @@ final class AppSettings {
         return "\(formatCurrency(getCurrentPeriodBudget())) per \(budgetPeriod.displayName.lowercased())"
     }
     
+    // Update subscription status
+    func updateSubscriptionStatus(isSubscribed: Bool) {
+        self.isSubscribed = isSubscribed
+        saveSettings()
+    }
+    
+    // Check if premium feature is accessible
+    func canAccessPremiumFeature() -> Bool {
+        return isSubscribed
+    }
+    
     // Reset all settings to default values
     func resetToDefaults() {
         // Reset to default values
@@ -218,6 +242,7 @@ final class AppSettings {
         selectedTheme = .system
         budgetPeriod = .monthly
         dailyBudgetAmount = 33.33 // Default ~$1000/month
+        isSubscribed = false
         
         // Clear user defaults to ensure clean state
         UserDefaults.standard.removeObject(forKey: Keys.currency)
@@ -225,6 +250,7 @@ final class AppSettings {
         UserDefaults.standard.removeObject(forKey: Keys.budgetPeriod)
         UserDefaults.standard.removeObject(forKey: Keys.dailyBudgetAmount)
         UserDefaults.standard.removeObject(forKey: Keys.hasCurrencyBeenDetected)
+        UserDefaults.standard.removeObject(forKey: Keys.isSubscribed)
         
         // Save defaults
         saveSettings()

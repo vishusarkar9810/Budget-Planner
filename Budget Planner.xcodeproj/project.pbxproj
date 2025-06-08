@@ -10,22 +10,9 @@
 		7F855A4C2DF224C5003EE902 /* Budget Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budget Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		7F0923132DF37712005038E1 /* Exceptions for "Budget Planner" folder in "Budget Planner" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Budget-Planner-Info.plist",
-			);
-			target = 7F855A4B2DF224C5003EE902 /* Budget Planner */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7F855A4E2DF224C5003EE902 /* Budget Planner */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				7F0923132DF37712005038E1 /* Exceptions for "Budget Planner" folder in "Budget Planner" target */,
-			);
 			path = "Budget Planner";
 			sourceTree = "<group>";
 		};
@@ -107,6 +94,8 @@
 			);
 			mainGroup = 7F855A432DF224C5003EE902;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7F855A4D2DF224C5003EE902 /* Products */;
 			projectDirPath = "";

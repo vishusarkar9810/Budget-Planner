@@ -6,6 +6,8 @@
 	<array>
 		<dict/>
 	</array>
+	<key>StoreKitConfigurationFileURL</key>
+	<string>Budget Planner/ProductConfiguration.storekit</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

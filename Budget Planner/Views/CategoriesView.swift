@@ -11,6 +11,10 @@ import Charts
 struct CategoriesView: View {
     @Environment(BudgetModel.self) private var model
     @State private var selectedCategory: BudgetCategory?
+    @State private var showSubscriptionView = false
+    
+    // Max number of categories for free users
+    private let freeTierCategoryLimit = 5
     
     var body: some View {
         NavigationStack {
@@ -22,12 +26,16 @@ struct CategoriesView: View {
                     } else {
                         CategoryChartSection(
                             model: model,
-                            selectedCategory: $selectedCategory
+                            selectedCategory: $selectedCategory,
+                            isSubscribed: AppSettings.shared.isSubscribed,
+                            freeTierLimit: freeTierCategoryLimit
                         )
                         
                         CategoryListSection(
                             model: model,
-                            selectedCategory: $selectedCategory
+                            selectedCategory: $selectedCategory,
+                            isSubscribed: AppSettings.shared.isSubscribed,
+                            freeTierLimit: freeTierCategoryLimit
                         )
                         
                         if let selectedCategory = selectedCategory {
@@ -36,11 +44,32 @@ struct CategoriesView: View {
                                 category: selectedCategory
                             )
                         }
+                        
+                        // Show premium banner if not subscribed
+                        if !AppSettings.shared.isSubscribed {
+                            PremiumBannerView(featureName: "unlimited categories")
+                                .padding(.top, 20)
+                        }
                     }
                 }
                 .padding()
             }
             .navigationTitle("Categories")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    if !AppSettings.shared.isSubscribed {
+                        Button {
+                            showSubscriptionView = true
+                        } label: {
+                            Label("Premium", systemImage: "crown.fill")
+                                .foregroundColor(.yellow)
+                        }
+                    }
+                }
+            }
+            .sheet(isPresented: $showSubscriptionView) {
+                SubscriptionView()
+            }
         }
     }
 }
@@ -48,6 +77,8 @@ struct CategoriesView: View {
 struct CategoryChartSection: View {
     let model: BudgetModel
     @Binding var selectedCategory: BudgetCategory?
+    let isSubscribed: Bool
+    let freeTierLimit: Int
     
     var body: some View {
         VStack {
@@ -56,7 +87,7 @@ struct CategoryChartSection: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             Chart {
-                ForEach(categoryData) { data in
+                ForEach(limitedCategoryData) { data in
                     SectorMark(
                         angle: .value("Amount", data.amount),
                         innerRadius: .ratio(0.6),
@@ -73,6 +104,28 @@ struct CategoryChartSection: View {
                         }
                     }
                 }
+                
+                // Add an "Other" sector for non-premium users if there are more categories
+                if !isSubscribed && allCategoryData.count > freeTierLimit {
+                    let otherAmount = otherCategoriesAmount
+                    let otherPercentage = otherAmount / model.totalSpent
+                    
+                    SectorMark(
+                        angle: .value("Amount", otherAmount),
+                        innerRadius: .ratio(0.6),
+                        angularInset: 1
+                    )
+                    .foregroundStyle(Color.gray)
+                    .cornerRadius(5)
+                    .annotation(position: .overlay) {
+                        if otherPercentage >= 0.05 {
+                            Text("\(Int(otherPercentage * 100))%")
+                                .font(.caption)
+                                .bold()
+                                .foregroundColor(.white)
+                        }
+                    }
+                }
             }
             .frame(height: 250)
             .chartAngleSelection(value: $selectedAngle)
@@ -81,7 +134,7 @@ struct CategoryChartSection: View {
             }
             
             HStack {
-                ForEach(categoryData) { data in
+                ForEach(limitedCategoryData) { data in
                     HStack {
                         Circle()
                             .fill(data.category.color)
@@ -91,8 +144,27 @@ struct CategoryChartSection: View {
                             .font(.caption)
                     }
                 }
+                
+                // Add "Other" legend for non-premium users if there are more categories
+                if !isSubscribed && allCategoryData.count > freeTierLimit {
+                    HStack {
+                        Circle()
+                            .fill(Color.gray)
+                            .frame(width: 10, height: 10)
+                        
+                        Text("Other")
+                            .font(.caption)
+                    }
+                }
             }
             .padding(.top)
+            
+            if !isSubscribed && allCategoryData.count > freeTierLimit {
+                Text("Upgrade to Premium to see all categories")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .padding(.top, 5)
+            }
         }
         .padding()
         .background(Color(.systemBackground))
@@ -102,7 +174,7 @@ struct CategoryChartSection: View {
     
     @State private var selectedAngle: Double?
     
-    private var categoryData: [CategoryData] {
+    private var allCategoryData: [CategoryData] {
         let spending = model.spendingByCategory
         let totalSpent = model.totalSpent
         
@@ -119,6 +191,24 @@ struct CategoryChartSection: View {
             .sorted { $0.amount > $1.amount }
     }
     
+    private var limitedCategoryData: [CategoryData] {
+        if isSubscribed {
+            return allCategoryData
+        } else {
+            return Array(allCategoryData.prefix(freeTierLimit))
+        }
+    }
+    
+    private var otherCategoriesAmount: Double {
+        if isSubscribed || allCategoryData.count <= freeTierLimit {
+            return 0
+        }
+        
+        return allCategoryData
+            .dropFirst(freeTierLimit)
+            .reduce(0) { $0 + $1.amount }
+    }
+    
     private func updateSelectedCategory(angle: Double?) {
         guard let angle = angle else {
             selectedCategory = nil
@@ -128,7 +218,7 @@ struct CategoryChartSection: View {
         // Calculate which category this angle corresponds to
         var startAngle: Double = 0
         
-        for data in categoryData {
+        for data in limitedCategoryData {
             let endAngle = startAngle + (data.amount / model.totalSpent) * 360
             
             if angle >= startAngle && angle <= endAngle {
@@ -137,6 +227,17 @@ struct CategoryChartSection: View {
             }
             
             startAngle = endAngle
+        }
+        
+        // Check if the angle falls in the "Other" section
+        if !isSubscribed && allCategoryData.count > freeTierLimit {
+            let otherAmount = otherCategoriesAmount
+            let endAngle = startAngle + (otherAmount / model.totalSpent) * 360
+            
+            if angle >= startAngle && angle <= endAngle {
+                // When "Other" is selected, don't select any specific category
+                selectedCategory = nil
+            }
         }
     }
 }
@@ -152,6 +253,9 @@ struct CategoryData: Identifiable {
 struct CategoryListSection: View {
     let model: BudgetModel
     @Binding var selectedCategory: BudgetCategory?
+    let isSubscribed: Bool
+    let freeTierLimit: Int
+    @State private var showSubscriptionView = false
     
     var body: some View {
         VStack {
@@ -159,7 +263,7 @@ struct CategoryListSection: View {
                 .font(.headline)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            ForEach(sortedCategories, id: \.category) { data in
+            ForEach(limitedCategories, id: \.category) { data in
                 CategoryListRow(
                     data: data,
                     isSelected: selectedCategory == data.category
@@ -168,11 +272,46 @@ struct CategoryListSection: View {
                     selectedCategory = data.category
                 }
             }
+            
+            // Show a row for additional categories that are locked behind premium
+            if !isSubscribed && sortedCategories.count > freeTierLimit {
+                HStack {
+                    Circle()
+                        .fill(Color.gray)
+                        .frame(width: 30, height: 30)
+                        .overlay {
+                            Image(systemName: "lock.fill")
+                                .foregroundColor(.white)
+                                .font(.caption)
+                        }
+                    
+                    Text("\(sortedCategories.count - freeTierLimit) more categories")
+                        .bold()
+                    
+                    Spacer()
+                    
+                    Button {
+                        showSubscriptionView = true
+                    } label: {
+                        Text("Unlock")
+                            .font(.caption)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 5)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(15)
+                    }
+                }
+                .padding(.vertical, 8)
+            }
         }
         .padding()
         .background(Color(.systemBackground))
         .cornerRadius(12)
         .shadow(radius: 2)
+        .sheet(isPresented: $showSubscriptionView) {
+            SubscriptionView()
+        }
     }
     
     private var sortedCategories: [CategoryData] {
@@ -189,6 +328,14 @@ struct CategoryListSection: View {
                 )
             }
             .sorted { $0.amount > $1.amount }
+    }
+    
+    private var limitedCategories: [CategoryData] {
+        if isSubscribed {
+            return sortedCategories
+        } else {
+            return Array(sortedCategories.prefix(freeTierLimit))
+        }
     }
 }
 

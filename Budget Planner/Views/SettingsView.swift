@@ -56,6 +56,7 @@ struct SettingsView: View {
     @State private var importAlertTitle = ""
     @State private var importAlertMessage = ""
     @State private var importSuccess = false
+    @State private var showSubscriptionView = false
     
     var body: some View {
         NavigationStack {
@@ -100,6 +101,53 @@ struct SettingsView: View {
                     .onChange(of: selectedTheme) { _, newTheme in
                         AppSettings.shared.updateTheme(newTheme)
                     }
+                }
+                
+                Section("Premium Subscription") {
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack {
+                            Image(systemName: "crown.fill")
+                                .foregroundColor(.yellow)
+                            
+                            Text(AppSettings.shared.isSubscribed ? "Premium Subscription Active" : "Upgrade to Premium")
+                                .font(.headline)
+                            
+                            Spacer()
+                            
+                            if AppSettings.shared.isSubscribed {
+                                Text("Active")
+                                    .font(.caption)
+                                    .padding(5)
+                                    .background(Color.green.opacity(0.2))
+                                    .foregroundColor(.green)
+                                    .cornerRadius(4)
+                            }
+                        }
+                        
+                        if AppSettings.shared.isSubscribed {
+                            Text("Thank you for supporting Budget Planner! You have access to all premium features.")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        } else {
+                            Text("Unlock advanced features including detailed analytics, unlimited categories, and more.")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            
+                            Button {
+                                showSubscription()
+                            } label: {
+                                Text("View Subscription Options")
+                                    .font(.subheadline)
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 8)
+                                    .background(Color.blue)
+                                    .cornerRadius(8)
+                            }
+                            .padding(.top, 5)
+                        }
+                    }
+                    .padding(.vertical, 5)
                 }
                 
                 Section("Notifications") {
@@ -238,6 +286,9 @@ struct SettingsView: View {
             } message: {
                 Text(importAlertMessage)
             }
+            .sheet(isPresented: $showSubscriptionView) {
+                SubscriptionView()
+            }
         }
     }
     
@@ -278,13 +329,13 @@ struct SettingsView: View {
     }
     
     private func scheduleDailyReminder() {
-        // Remove any existing notifications
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        // Remove any existing notification with the same ID
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["dailyReminder"])
         
-        // Create a new notification
+        // Create the content
         let content = UNMutableNotificationContent()
         content.title = "Budget Reminder"
-        content.body = "Don't forget to log your transactions for today!"
+        content.body = "Don't forget to track your expenses today!"
         content.sound = .default
         
         // Configure the trigger (daily at specified time)
@@ -324,6 +375,10 @@ struct SettingsView: View {
         } catch {
             print("Error exporting data: \(error.localizedDescription)")
         }
+    }
+    
+    private func showSubscription() {
+        showSubscriptionView = true
     }
 }
 

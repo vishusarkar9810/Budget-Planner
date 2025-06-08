@@ -1,0 +1,93 @@
+{
+  "identifier" : "77B1E96F",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "com.budgetplanner.app",
+    "_developerTeamID" : "ABCDE12345",
+    "_lastSynchronizedDate" : 719161177.02766597
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "20D1CA1F",
+      "localizations" : [
+        {
+          "description" : "Access premium features in Budget Planner",
+          "displayName" : "Budget Planner Premium",
+          "locale" : "en_US"
+        }
+      ],
+      "name" : "Budget Planner Premium",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "4.99",
+          "familyShareable" : true,
+          "groupNumber" : 1,
+          "internalID" : "1ADF57D4",
+          "introductoryOffer" : {
+            "internalID" : "17F7F1D1",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
+          "localizations" : [
+            {
+              "description" : "Monthly subscription to Budget Planner Premium",
+              "displayName" : "Monthly Premium",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.budgetplanner.subscription.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly Premium",
+          "subscriptionGroupID" : "20D1CA1F",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "49.99",
+          "familyShareable" : true,
+          "groupNumber" : 2,
+          "internalID" : "57BE8C17",
+          "introductoryOffer" : {
+            "internalID" : "FD3A42AE",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P2W"
+          },
+          "localizations" : [
+            {
+              "description" : "Yearly subscription to Budget Planner Premium",
+              "displayName" : "Yearly Premium",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.budgetplanner.subscription.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Yearly Premium",
+          "subscriptionGroupID" : "20D1CA1F",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+} 
