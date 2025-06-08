@@ -12,114 +12,117 @@ struct SubscriptionView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                // Header
-                VStack(spacing: 12) {
-                    Image(systemName: "crown.fill")
-                        .font(.system(size: 60))
-                        .foregroundColor(.yellow)
-                        .padding(.bottom, 10)
-                    
-                    Text("Budget Planner Premium")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                    
-                    Text("Unlock premium features to get the most out of your budget planning")
-                        .font(.subheadline)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal)
-                        .foregroundColor(.secondary)
-                }
-                .padding(.top, 40)
-                .padding(.bottom, 30)
-                
-                // Features list
-                VStack(alignment: .leading, spacing: 15) {
-                    FeatureRow(icon: "chart.line.uptrend.xyaxis", title: "Advanced Analytics", description: "Detailed spending patterns and insights")
-                    FeatureRow(icon: "doc.on.doc", title: "Unlimited Categories", description: "Create as many budget categories as you need")
-                    FeatureRow(icon: "arrow.up.arrow.down", title: "Custom Budget Periods", description: "Weekly, bi-weekly, and custom periods")
-                    FeatureRow(icon: "icloud.and.arrow.up", title: "Cloud Backup", description: "Keep your data safe and synced")
-                    FeatureRow(icon: "bell.badge", title: "Custom Reminders", description: "Set personalized budget alerts")
-                }
-                .padding(.horizontal, 30)
-                .padding(.bottom, 30)
-                
-                // Subscription options
-                if subscriptionManager.isLoading {
-                    ProgressView()
-                        .padding()
-                } else if subscriptionManager.products.isEmpty {
-                    VStack(spacing: 10) {
-                        Text("No subscription options available")
-                            .padding()
+            ScrollView {
+                VStack {
+                    // Header
+                    VStack(spacing: 12) {
+                        Image(systemName: "crown.fill")
+                            .font(.system(size: 60))
+                            .foregroundColor(.yellow)
+                            .padding(.bottom, 10)
                         
-                        Button {
-                            subscriptionManager.loadProducts()
-                        } label: {
-                            Label("Retry Loading Products", systemImage: "arrow.clockwise")
-                                .foregroundColor(.blue)
-                        }
-                    }
-                } else {
-                    VStack(spacing: 15) {
-                        ForEach(subscriptionManager.products, id: \.productIdentifier) { product in
-                            SubscriptionOptionView(product: product) {
-                                purchaseSubscription(product)
-                            }
-                        }
-                    }
-                    .padding(.horizontal)
-                }
-                
-                // Current subscription status
-                if subscriptionManager.isSubscribed {
-                    HStack {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.green)
-                        Text("You are currently subscribed")
-                            .font(.footnote)
+                        Text("Budget Planner Premium")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                        
+                        Text("Unlock premium features to get the most out of your budget planning")
+                            .font(.subheadline)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal)
                             .foregroundColor(.secondary)
                     }
-                    .padding(.top, 10)
-                }
-                
-                Spacer()
-                
-                // Restore purchases button
-                Button("Restore Purchases") {
-                    restorePurchases()
-                }
-                .font(.footnote)
-                .padding(.bottom, 10)
-                
-                // Terms and privacy
-                VStack(spacing: 5) {
-                    Text("By subscribing, you agree to our Terms of Service and Privacy Policy")
-                        .font(.caption2)
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.secondary)
+                    .padding(.top, 20)
+                    .padding(.bottom, 20)
                     
-                    Text("Subscriptions will automatically renew until canceled")
-                        .font(.caption2)
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.secondary)
-                    
-                    HStack(spacing: 20) {
-                        Button("Terms of Service") {
-                            // Open terms of service URL
-                        }
-                        .font(.caption2)
-                        .foregroundColor(.blue)
-                        
-                        Button("Privacy Policy") {
-                            // Open privacy policy URL
-                        }
-                        .font(.caption2)
-                        .foregroundColor(.blue)
+                    // Features list
+                    VStack(alignment: .leading, spacing: 15) {
+                        FeatureRow(icon: "chart.line.uptrend.xyaxis", title: "Advanced Analytics", description: "Detailed spending patterns and insights")
+                        FeatureRow(icon: "doc.on.doc", title: "Unlimited Categories", description: "Create as many budget categories as you need")
+                        FeatureRow(icon: "arrow.up.arrow.down", title: "Custom Budget Periods", description: "Weekly, bi-weekly, and custom periods")
+                        FeatureRow(icon: "icloud.and.arrow.up", title: "Cloud Backup", description: "Keep your data safe and synced")
+                        FeatureRow(icon: "bell.badge", title: "Custom Reminders", description: "Set personalized budget alerts")
                     }
-                    .padding(.top, 5)
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 20)
+                    
+                    // Subscription options
+                    if subscriptionManager.isLoading {
+                        ProgressView()
+                            .padding()
+                    } else if subscriptionManager.products.isEmpty {
+                        VStack(spacing: 10) {
+                            Text("No subscription options available")
+                                .padding()
+                            
+                            Button {
+                                subscriptionManager.loadProducts()
+                            } label: {
+                                Label("Retry Loading Products", systemImage: "arrow.clockwise")
+                                    .foregroundColor(.blue)
+                            }
+                        }
+                    } else {
+                        VStack(spacing: 15) {
+                            ForEach(subscriptionManager.products, id: \.productIdentifier) { product in
+                                SubscriptionOptionView(product: product) {
+                                    purchaseSubscription(product)
+                                }
+                            }
+                        }
+                        .padding(.horizontal)
+                    }
+                    
+                    // Current subscription status
+                    if subscriptionManager.isSubscribed {
+                        HStack {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                            Text("You are currently subscribed")
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.top, 10)
+                    }
+                    
+                    Spacer(minLength: 20)
+                    
+                    // Restore purchases button
+                    Button("Restore Purchases") {
+                        restorePurchases()
+                    }
+                    .font(.footnote)
+                    .padding(.bottom, 10)
+                    
+                    // Terms and privacy
+                    VStack(spacing: 5) {
+                        Text("By subscribing, you agree to our Terms of Service and Privacy Policy")
+                            .font(.caption2)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.secondary)
+                        
+                        Text("Subscriptions will automatically renew until canceled")
+                            .font(.caption2)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.secondary)
+                        
+                        HStack(spacing: 20) {
+                            Button("Terms of Service") {
+                                // Open terms of service URL
+                            }
+                            .font(.caption2)
+                            .foregroundColor(.blue)
+                            
+                            Button("Privacy Policy") {
+                                // Open privacy policy URL
+                            }
+                            .font(.caption2)
+                            .foregroundColor(.blue)
+                        }
+                        .padding(.top, 5)
+                    }
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 20)
                 }
-                .padding(.horizontal, 30)
                 .padding(.bottom, 20)
             }
             .navigationTitle("Premium Subscription")
