@@ -1,5 +1,6 @@
 import SwiftUI
 import StoreKit
+import UIKit
 
 struct SubscriptionView: View {
     @State private var subscriptionManager = SubscriptionManager.shared
@@ -108,12 +109,18 @@ struct SubscriptionView: View {
                         HStack(spacing: 20) {
                             Button("Terms of Service") {
                                 // Open terms of service URL
+                                if let url = URL(string: "https://example.com/terms") {
+                                    UIApplication.shared.open(url)
+                                }
                             }
                             .font(.caption2)
                             .foregroundColor(.blue)
                             
                             Button("Privacy Policy") {
                                 // Open privacy policy URL
+                                if let url = URL(string: "https://example.com/privacy") {
+                                    UIApplication.shared.open(url)
+                                }
                             }
                             .font(.caption2)
                             .foregroundColor(.blue)
