@@ -108,7 +108,7 @@ struct SubscriptionView: View {
                         HStack(spacing: 20) {
                             Button("Terms of Service") {
                                 // Open terms of service URL
-                                if let url = URL(string: "https://example.com/terms") {
+                                if let url = URL(string: "https://sites.google.com/aztty.com/budget-spending-tracker/home") {
                                     UIApplication.shared.open(url)
                                 }
                             }
@@ -117,7 +117,7 @@ struct SubscriptionView: View {
                             
                             Button("Privacy Policy") {
                                 // Open privacy policy URL
-                                if let url = URL(string: "https://example.com/privacy") {
+                                if let url = URL(string: "https://sites.google.com/aztty.com/budgetspendingtracker/home") {
                                     UIApplication.shared.open(url)
                                 }
                             }
