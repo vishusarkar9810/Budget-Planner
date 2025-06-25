@@ -11,7 +11,7 @@ final class AppSettings {
     var selectedCurrency: Currency = .usd
     
     // Theme settings
-    var selectedTheme: AppTheme = .system
+    var selectedTheme: AppTheme = .light
     
     // Budget settings
     var budgetPeriod: BudgetPeriod = .monthly
@@ -249,7 +249,7 @@ final class AppSettings {
     func resetToDefaults() {
         // Reset to default values
         selectedCurrency = .usd
-        selectedTheme = .system
+        selectedTheme = .light
         budgetPeriod = .monthly
         dailyBudgetAmount = 33.33 // Default ~$1000/month
         isSubscribed = false

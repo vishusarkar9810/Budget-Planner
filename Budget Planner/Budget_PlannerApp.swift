@@ -33,14 +33,12 @@ struct Budget_PlannerApp: App {
         }
     }
     
-    private func getPreferredColorScheme() -> ColorScheme? {
+    private func getPreferredColorScheme() -> ColorScheme {
         switch appSettings.selectedTheme {
         case .light:
             return .light
         case .dark:
             return .dark
-        case .system:
-            return nil
         }
     }
 }

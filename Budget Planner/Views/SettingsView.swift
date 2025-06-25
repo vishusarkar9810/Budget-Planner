@@ -13,7 +13,6 @@ import UserNotifications
 
 // Theme for customization
 enum AppTheme: String, CaseIterable, Identifiable {
-    case system
     case light
     case dark
     
@@ -21,7 +20,6 @@ enum AppTheme: String, CaseIterable, Identifiable {
     
     var displayName: String {
         switch self {
-        case .system: return "System"
         case .light: return "Light"
         case .dark: return "Dark"
         }
@@ -29,7 +27,6 @@ enum AppTheme: String, CaseIterable, Identifiable {
     
     var accentColor: Color {
         switch self {
-        case .system: return .blue
         case .light: return .blue
         case .dark: return .blue
         }
@@ -314,7 +311,7 @@ struct SettingsView: View {
         // Update local UI state to match reset values
         DispatchQueue.main.async {
             self.selectedCurrency = .usd
-            self.selectedTheme = .system
+            self.selectedTheme = .light
             self.selectedBudgetPeriod = .monthly
             self.budgetAmount = "1000.00"
         }
