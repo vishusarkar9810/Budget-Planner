@@ -178,6 +178,11 @@ struct CategoryChartSection: View {
         let spending = model.spendingByCategory
         let totalSpent = model.totalSpent
         
+        // If totalSpent is zero, return empty array to avoid division by zero
+        guard totalSpent > 0 else {
+            return []
+        }
+        
         return BudgetCategory.allCases
             .filter { spending[$0] ?? 0 > 0 }
             .map { category in
@@ -210,7 +215,7 @@ struct CategoryChartSection: View {
     }
     
     private func updateSelectedCategory(angle: Double?) {
-        guard let angle = angle else {
+        guard let angle = angle, model.totalSpent > 0 else {
             selectedCategory = nil
             return
         }

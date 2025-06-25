@@ -72,17 +72,17 @@ struct SubscriptionView: View {
                                 .font(.headline)
                                 .padding(.horizontal)
                             
-                            VStack(spacing: 15) {
+                        VStack(spacing: 15) {
                                 ForEach(subscriptionManager.products.filter { 
                                     $0.productIdentifier == "com.budgetplanner.subscription.monthly" || 
                                     $0.productIdentifier == "com.budgetplanner.subscription.yearly"
                                 }, id: \.productIdentifier) { product in
-                                    SubscriptionOptionView(product: product) {
-                                        purchaseSubscription(product)
-                                    }
+                                SubscriptionOptionView(product: product) {
+                                    purchaseSubscription(product)
                                 }
                             }
-                            .padding(.horizontal)
+                        }
+                        .padding(.horizontal)
                         }
                         .padding(.bottom, 20)
                         
@@ -188,8 +188,8 @@ struct SubscriptionView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     if !isFromOnboarding {
-                        Button("Close") {
-                            dismiss()
+                    Button("Close") {
+                        dismiss()
                         }
                     }
                 }
@@ -238,7 +238,7 @@ struct SubscriptionView: View {
                         if isFromOnboarding, let completion = onboardingCompletion {
                             completion()
                         } else {
-                            dismiss()
+                        dismiss()
                         }
                     }
                 }

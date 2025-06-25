@@ -55,7 +55,7 @@ struct BudgetSummaryCard: View {
             
             HStack(spacing: 20) {
                 ProgressCircle(
-                    progress: spent / budget,
+                    progress: safeProgress,
                     color: progressColor
                 )
                 .frame(width: 100, height: 100)
@@ -79,7 +79,14 @@ struct BudgetSummaryCard: View {
         .shadow(radius: 2)
     }
     
+    private var safeProgress: Double {
+        guard budget > 0 else { return 0 }
+        return spent / budget
+    }
+    
     private var progressColor: Color {
+        guard budget > 0 else { return .green }
+        
         let ratio = spent / budget
         if ratio < 0.5 {
             return .green
@@ -101,14 +108,26 @@ struct ProgressCircle: View {
                 .stroke(Color.gray.opacity(0.2), lineWidth: 10)
             
             Circle()
-                .trim(from: 0, to: min(CGFloat(progress), 1.0))
+                .trim(from: 0, to: min(CGFloat(safeProgress), 1.0))
                 .stroke(color, style: StrokeStyle(lineWidth: 10, lineCap: .round))
                 .rotationEffect(.degrees(-90))
             
-            Text("\(Int(min(progress, 1.0) * 100))%")
+            Text("\(safeProgressPercentage)%")
                 .font(.system(.title3, design: .rounded))
                 .bold()
         }
+    }
+    
+    // Safely handle NaN or infinity values
+    private var safeProgress: Double {
+        guard progress.isFinite && !progress.isNaN else {
+            return 0
+        }
+        return progress
+    }
+    
+    private var safeProgressPercentage: Int {
+        Int(min(safeProgress, 1.0) * 100)
     }
 }
 
@@ -210,7 +229,7 @@ struct CategorySpendingSection: View {
                     CategoryRow(
                         category: category,
                         amount: model.totalSpent(for: category),
-                        percentage: model.totalSpent(for: category) / model.totalSpent
+                        percentage: safePercentage(for: category)
                     )
                 }
             }
@@ -219,6 +238,15 @@ struct CategorySpendingSection: View {
         .background(Color(.systemBackground))
         .cornerRadius(12)
         .shadow(radius: 2)
+    }
+    
+    // Calculate percentage safely, avoiding division by zero
+    private func safePercentage(for category: BudgetCategory) -> Double {
+        let totalSpent = model.totalSpent
+        guard totalSpent > 0 else {
+            return 0
+        }
+        return model.totalSpent(for: category) / totalSpent
     }
 }
 
@@ -240,9 +268,17 @@ struct CategoryRow: View {
             Text(AppSettings.shared.formatCurrency(amount))
                 .bold()
             
-            Text("(\(Int(percentage * 100))%)")
+            Text("(\(safePercentage)%)")
                 .foregroundColor(.secondary)
         }
         .padding(.vertical, 4)
+    }
+    
+    // Safely handle NaN or infinity values
+    private var safePercentage: Int {
+        guard percentage.isFinite && !percentage.isNaN else {
+            return 0
+        }
+        return Int(percentage * 100)
     }
 } 
