@@ -87,6 +87,10 @@ struct AddTransactionView: View {
         )
         
         model.addTransaction(transaction)
+        
+        // Log this as a significant event that might trigger a review prompt
+        AppReviewManager.shared.logSignificantEvent()
+        
         dismiss()
     }
 } 

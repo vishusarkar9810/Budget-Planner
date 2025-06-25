@@ -18,6 +18,9 @@ final class BudgetModel {
     
     var transactions: [Transaction] = []
     
+    // Track transaction counts for milestones
+    private var previousTransactionCount = 0
+    
     // Budget is now computed from AppSettings
     var budget: Double {
         get { AppSettings.shared.getCurrentPeriodBudget() }
@@ -32,11 +35,13 @@ final class BudgetModel {
         )
         
         fetchTransactions()
+        previousTransactionCount = transactions.count
     }
     
     func fetchTransactions() {
         do {
             transactions = try modelContext.fetch(transactionsDescriptor)
+            checkTransactionMilestones()
         } catch {
             print("Failed to fetch transactions: \(error)")
         }
@@ -71,6 +76,9 @@ final class BudgetModel {
     
     func updateBudget(_ newBudget: Double) {
         budget = newBudget
+        
+        // Budget updates are significant events
+        AppReviewManager.shared.logSignificantEvent()
     }
     
     private func saveContext() {
@@ -79,6 +87,28 @@ final class BudgetModel {
         } catch {
             print("Failed to save context: \(error)")
         }
+    }
+    
+    // Check for transaction milestones that might be good times for review prompts
+    private func checkTransactionMilestones() {
+        let currentCount = transactions.count
+        
+        // Check if we've reached certain milestones
+        let milestones = [5, 10, 25, 50, 100]
+        
+        for milestone in milestones {
+            // If we've crossed a milestone
+            if previousTransactionCount < milestone && currentCount >= milestone {
+                print("Reached transaction milestone: \(milestone)")
+                
+                // This is a significant event - the user is actively using the app
+                AppReviewManager.shared.logSignificantEvent()
+                break
+            }
+        }
+        
+        // Update the previous count for next check
+        previousTransactionCount = currentCount
     }
     
     // Reset all data in the app

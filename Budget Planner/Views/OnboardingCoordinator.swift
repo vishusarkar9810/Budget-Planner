@@ -15,6 +15,7 @@ struct OnboardingCoordinator: View {
     @State private var isLoadingComplete = false
     @State private var isWelcomeComplete = false
     @State private var showPremiumScreen = false
+    @State private var shouldShowReview = false
     
     // Onboarding stages
     enum OnboardingState {
@@ -68,10 +69,22 @@ struct OnboardingCoordinator: View {
                 SubscriptionView(isFromOnboarding: true) {
                     // Complete onboarding when subscription view is dismissed
                     AppSettings.shared.completeOnboarding()
+                    
+                    // Check if we should show the review prompt
+                    shouldShowReview = AppReviewManager.shared.shouldShowOnboardingReview
+                    
+                    if shouldShowReview {
+                        // Request review
+                        AppReviewManager.shared.requestOnboardingReview()
+                    }
+                    
+                    // Dismiss the onboarding coordinator
                     dismiss()
                 }
             }
         }
+        // Apply the review request modifier
+        .requestReview(when: shouldShowReview)
     }
 }
 
