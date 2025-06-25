@@ -11,6 +11,10 @@ struct SubscriptionView: View {
     @State private var errorSuggestion: String?
     @Environment(\.dismiss) private var dismiss
     
+    // Parameters for onboarding flow
+    var isFromOnboarding: Bool = false
+    var onboardingCompletion: (() -> Void)? = nil
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -127,6 +131,20 @@ struct SubscriptionView: View {
                     .font(.footnote)
                     .padding(.bottom, 10)
                     
+                    // Skip button when coming from onboarding
+                    if isFromOnboarding {
+                        Button("Continue with Free Version") {
+                            if let completion = onboardingCompletion {
+                                completion()
+                            } else {
+                                dismiss()
+                            }
+                        }
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                        .padding(.bottom, 10)
+                    }
+                    
                     // Terms and privacy
                     VStack(spacing: 5) {
                         Text("By subscribing, you agree to our Terms of Service and Privacy Policy")
@@ -169,8 +187,10 @@ struct SubscriptionView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Close") {
-                        dismiss()
+                    if !isFromOnboarding {
+                        Button("Close") {
+                            dismiss()
+                        }
                     }
                 }
             }
@@ -215,11 +235,16 @@ struct SubscriptionView: View {
                 if subscriptionManager.hasPremiumAccess {
                     // Dismiss the view if purchase was successful
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        dismiss()
+                        if isFromOnboarding, let completion = onboardingCompletion {
+                            completion()
+                        } else {
+                            dismiss()
+                        }
                     }
                 }
             }
         }
+        .interactiveDismissDisabled(isFromOnboarding) // Prevent swipe to dismiss during onboarding
     }
     
     private func purchaseSubscription(_ product: SKProduct) {

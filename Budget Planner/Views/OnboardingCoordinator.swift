@@ -14,6 +14,7 @@ struct OnboardingCoordinator: View {
     @State private var onboardingState: OnboardingState = .loading
     @State private var isLoadingComplete = false
     @State private var isWelcomeComplete = false
+    @State private var showPremiumScreen = false
     
     // Onboarding stages
     enum OnboardingState {
@@ -21,6 +22,7 @@ struct OnboardingCoordinator: View {
         case welcome     // Welcome animation that matches the cream screenshots
         case mainFlow    // Main onboarding flow with the different feature screens
         case getStarted  // Final get started screen
+        case premium     // Premium subscription screen
     }
     
     var body: some View {
@@ -57,7 +59,14 @@ struct OnboardingCoordinator: View {
             case .getStarted:
                 // Final get started view
                 GetStartedView {
-                    // Complete onboarding when get started is tapped
+                    // Show premium screen after get started is tapped
+                    onboardingState = .premium
+                }
+                
+            case .premium:
+                // Premium subscription screen
+                SubscriptionView(isFromOnboarding: true) {
+                    // Complete onboarding when subscription view is dismissed
                     AppSettings.shared.completeOnboarding()
                     dismiss()
                 }
@@ -111,7 +120,7 @@ struct GetStartedView: View {
             Button {
                 onGetStarted()
             } label: {
-                Text("Get Started")
+                Text("Continue")
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .frame(width: 300, height: 60)
