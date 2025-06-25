@@ -63,6 +63,7 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
     private(set) var isSubscribed: Bool = false
     private(set) var currentSubscription: SKProduct?
     private(set) var isLoading: Bool = false
+    private(set) var hasLifetimeAccess: Bool = false
     
     // Error handling
     private(set) var errorMessage: String?
@@ -71,6 +72,7 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
     // Product IDs
     private let monthlySubscriptionID = "com.budgetplanner.subscription.monthly"
     private let yearlySubscriptionID = "com.budgetplanner.subscription.yearly"
+    private let lifetimePremiumID = "com.budgetplanner.lifetime.premium"
     
     // Initialize the subscription manager
     private override init() {
@@ -84,6 +86,7 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
         
         // Load subscription status from user defaults
         isSubscribed = UserDefaults.standard.bool(forKey: "isSubscribed")
+        hasLifetimeAccess = UserDefaults.standard.bool(forKey: "hasLifetimeAccess")
     }
     
     deinit {
@@ -98,7 +101,7 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
         errorMessage = nil
         detailedError = nil
         
-        let productIdentifiers = Set([monthlySubscriptionID, yearlySubscriptionID])
+        let productIdentifiers = Set([monthlySubscriptionID, yearlySubscriptionID, lifetimePremiumID])
         let productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
         productsRequest.delegate = self
         productsRequest.start()
@@ -146,6 +149,11 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
     func clearErrors() {
         errorMessage = nil
         detailedError = nil
+    }
+    
+    // Check if user has premium access (either subscription or lifetime)
+    var hasPremiumAccess: Bool {
+        return isSubscribed || hasLifetimeAccess
     }
     
     // MARK: - SKProductsRequestDelegate
@@ -203,7 +211,7 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
         DispatchQueue.main.async {
             self.isLoading = false
             
-            if !self.isSubscribed {
+            if !self.hasPremiumAccess {
                 // No subscriptions were found to restore
                 self.errorMessage = "No previous purchases found"
             }
@@ -230,7 +238,7 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
     private func handlePurchased(_ transaction: SKPaymentTransaction) {
         let productID = transaction.payment.productIdentifier
         
-        // Check if this is one of our subscription products
+        // Check if this is one of our subscription products or lifetime product
         if productID == monthlySubscriptionID || productID == yearlySubscriptionID {
             DispatchQueue.main.async {
                 self.isSubscribed = true
@@ -238,6 +246,21 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
                 
                 // Update subscription status in AppSettings
                 AppSettings.shared.updateSubscriptionStatus(isSubscribed: true)
+                
+                self.isLoading = false
+                
+                // Post notification that subscription status has changed
+                NotificationCenter.default.post(name: .subscriptionUpdated, object: nil)
+            }
+        } else if productID == lifetimePremiumID {
+            DispatchQueue.main.async {
+                self.hasLifetimeAccess = true
+                
+                // Save lifetime access status
+                UserDefaults.standard.set(true, forKey: "hasLifetimeAccess")
+                
+                // Update lifetime access status in AppSettings
+                AppSettings.shared.updateLifetimeAccessStatus(hasLifetimeAccess: true)
                 
                 self.isLoading = false
                 
@@ -283,9 +306,12 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
     }
     
     private func handleRestored(_ transaction: SKPaymentTransaction) {
-        let productID = transaction.payment.productIdentifier
+        guard let productID = transaction.original?.payment.productIdentifier else {
+            SKPaymentQueue.default().finishTransaction(transaction)
+            return
+        }
         
-        // Check if this is one of our subscription products
+        // Check if this is one of our subscription products or lifetime product
         if productID == monthlySubscriptionID || productID == yearlySubscriptionID {
             DispatchQueue.main.async {
                 self.isSubscribed = true
@@ -293,6 +319,21 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
                 
                 // Update subscription status in AppSettings
                 AppSettings.shared.updateSubscriptionStatus(isSubscribed: true)
+                
+                self.isLoading = false
+                
+                // Post notification that subscription status has changed
+                NotificationCenter.default.post(name: .subscriptionUpdated, object: nil)
+            }
+        } else if productID == lifetimePremiumID {
+            DispatchQueue.main.async {
+                self.hasLifetimeAccess = true
+                
+                // Save lifetime access status
+                UserDefaults.standard.set(true, forKey: "hasLifetimeAccess")
+                
+                // Update lifetime access status in AppSettings
+                AppSettings.shared.updateLifetimeAccessStatus(hasLifetimeAccess: true)
                 
                 self.isLoading = false
                 

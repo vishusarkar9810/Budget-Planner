@@ -22,10 +22,11 @@ final class AppSettings {
     
     // Subscription status
     var isSubscribed: Bool = false
+    var hasLifetimeAccess: Bool = false
     
     // Premium features access
     var premiumFeaturesEnabled: Bool {
-        return isSubscribed
+        return isSubscribed || hasLifetimeAccess
     }
     
     // UserDefaults keys
@@ -37,6 +38,7 @@ final class AppSettings {
         static let hasCompletedOnboarding = "hasCompletedOnboarding"
         static let hasCurrencyBeenDetected = "hasCurrencyBeenDetected"
         static let isSubscribed = "isSubscribed"
+        static let hasLifetimeAccess = "hasLifetimeAccess"
     }
     
     // Private init for singleton
@@ -77,6 +79,7 @@ final class AppSettings {
         
         // Load subscription status
         isSubscribed = UserDefaults.standard.bool(forKey: Keys.isSubscribed)
+        hasLifetimeAccess = UserDefaults.standard.bool(forKey: Keys.hasLifetimeAccess)
     }
     
     // Detect and set the currency based on device locale
@@ -168,6 +171,7 @@ final class AppSettings {
         UserDefaults.standard.set(dailyBudgetAmount, forKey: Keys.dailyBudgetAmount)
         UserDefaults.standard.set(hasCompletedOnboarding, forKey: Keys.hasCompletedOnboarding)
         UserDefaults.standard.set(isSubscribed, forKey: Keys.isSubscribed)
+        UserDefaults.standard.set(hasLifetimeAccess, forKey: Keys.hasLifetimeAccess)
     }
     
     // Mark onboarding as completed
@@ -230,9 +234,15 @@ final class AppSettings {
         saveSettings()
     }
     
+    // Update lifetime access status
+    func updateLifetimeAccessStatus(hasLifetimeAccess: Bool) {
+        self.hasLifetimeAccess = hasLifetimeAccess
+        saveSettings()
+    }
+    
     // Check if premium feature is accessible
     func canAccessPremiumFeature() -> Bool {
-        return isSubscribed
+        return isSubscribed || hasLifetimeAccess
     }
     
     // Reset all settings to default values
@@ -243,6 +253,7 @@ final class AppSettings {
         budgetPeriod = .monthly
         dailyBudgetAmount = 33.33 // Default ~$1000/month
         isSubscribed = false
+        hasLifetimeAccess = false
         
         // Clear user defaults to ensure clean state
         UserDefaults.standard.removeObject(forKey: Keys.currency)
@@ -251,6 +262,7 @@ final class AppSettings {
         UserDefaults.standard.removeObject(forKey: Keys.dailyBudgetAmount)
         UserDefaults.standard.removeObject(forKey: Keys.hasCurrencyBeenDetected)
         UserDefaults.standard.removeObject(forKey: Keys.isSubscribed)
+        UserDefaults.standard.removeObject(forKey: Keys.hasLifetimeAccess)
         
         // Save defaults
         saveSettings()

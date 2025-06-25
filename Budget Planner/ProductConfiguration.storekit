@@ -4,7 +4,21 @@
 
   ],
   "products" : [
-
+    {
+      "displayPrice" : "99.99",
+      "familyShareable" : true,
+      "internalID" : "B7C84D32",
+      "localizations" : [
+        {
+          "description" : "Lifetime access to all premium features",
+          "displayName" : "Lifetime Premium Access",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.budgetplanner.lifetime.premium",
+      "referenceName" : "Lifetime Premium",
+      "type" : "NonConsumable"
+    }
   ],
   "settings" : {
     "_applicationInternalID" : "com.budgetplanner.app",

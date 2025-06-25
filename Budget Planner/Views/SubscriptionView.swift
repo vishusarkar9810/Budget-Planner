@@ -62,14 +62,39 @@ struct SubscriptionView: View {
                             }
                         }
                     } else {
-                        VStack(spacing: 15) {
-                            ForEach(subscriptionManager.products, id: \.productIdentifier) { product in
-                                SubscriptionOptionView(product: product) {
-                                    purchaseSubscription(product)
+                        // Subscription options section
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Subscription Options")
+                                .font(.headline)
+                                .padding(.horizontal)
+                            
+                            VStack(spacing: 15) {
+                                ForEach(subscriptionManager.products.filter { 
+                                    $0.productIdentifier == "com.budgetplanner.subscription.monthly" || 
+                                    $0.productIdentifier == "com.budgetplanner.subscription.yearly"
+                                }, id: \.productIdentifier) { product in
+                                    SubscriptionOptionView(product: product) {
+                                        purchaseSubscription(product)
+                                    }
                                 }
                             }
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
+                        .padding(.bottom, 20)
+                        
+                        // One-time purchase option
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Lifetime Access")
+                                .font(.headline)
+                                .padding(.horizontal)
+                            
+                            if let lifetimeProduct = subscriptionManager.product(for: "com.budgetplanner.lifetime.premium") {
+                                LifetimeOptionView(product: lifetimeProduct) {
+                                    purchaseSubscription(lifetimeProduct)
+                                }
+                                .padding(.horizontal)
+                            }
+                        }
                     }
                     
                     // Current subscription status
@@ -78,6 +103,15 @@ struct SubscriptionView: View {
                             Image(systemName: "checkmark.circle.fill")
                                 .foregroundColor(.green)
                             Text("You are currently subscribed")
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.top, 10)
+                    } else if subscriptionManager.hasLifetimeAccess {
+                        HStack {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                            Text("You have lifetime premium access")
                                 .font(.footnote)
                                 .foregroundColor(.secondary)
                         }
@@ -178,7 +212,7 @@ struct SubscriptionView: View {
                 // Handle subscription updates
                 updateErrorState()
                 
-                if subscriptionManager.isSubscribed {
+                if subscriptionManager.hasPremiumAccess {
                     // Dismiss the view if purchase was successful
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         dismiss()
@@ -276,6 +310,66 @@ struct SubscriptionOptionView: View {
         default:
             return priceString
         }
+    }
+}
+
+// Helper view for lifetime option
+struct LifetimeOptionView: View {
+    let product: SKProduct
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 15) {
+                HStack {
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("Lifetime Premium Access")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                        
+                        // Show pricing information
+                        Text(displayPrice)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    Spacer()
+                    
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(.blue)
+                }
+                
+                HStack(spacing: 10) {
+                    Text("✓ Pay once, use forever")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    
+                    Spacer()
+                    
+                    Text("✓ No recurring charges")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                .padding(.horizontal, 4)
+            }
+            .padding()
+            .background(Color(.secondarySystemBackground))
+            .cornerRadius(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.blue.opacity(0.5), lineWidth: 2)
+            )
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+    
+    // Helper computed property
+    private var displayPrice: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = product.priceLocale
+        
+        return formatter.string(from: product.price) ?? "\(product.price)"
     }
 }
 
