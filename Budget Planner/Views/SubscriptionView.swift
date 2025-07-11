@@ -120,6 +120,23 @@ struct SubscriptionView: View {
                                 .foregroundColor(.secondary)
                         }
                         .padding(.top, 10)
+                    } else if subscriptionManager.isInFreeTrial {
+                        VStack(spacing: 4) {
+                            HStack {
+                                Image(systemName: "gift.fill")
+                                    .foregroundColor(.blue)
+                                Text("You are in a free trial period")
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
+                            }
+                            
+                            if let daysRemaining = subscriptionManager.freeTrialRemainingDays {
+                                Text("\(daysRemaining) \(daysRemaining == 1 ? "day" : "days") remaining")
+                                    .font(.caption)
+                                    .foregroundColor(.blue)
+                            }
+                        }
+                        .padding(.top, 10)
                     }
                     
                     Spacer(minLength: 20)
@@ -153,6 +170,11 @@ struct SubscriptionView: View {
                             .foregroundColor(.secondary)
                         
                         Text("Subscriptions will automatically renew until canceled")
+                            .font(.caption2)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.secondary)
+                        
+                        Text("Free trial automatically converts to paid subscription unless canceled before trial ends")
                             .font(.caption2)
                             .multilineTextAlignment(.center)
                             .foregroundColor(.secondary)
@@ -282,6 +304,7 @@ struct SubscriptionView: View {
 struct SubscriptionOptionView: View {
     let product: SKProduct
     let action: () -> Void
+    @State private var subscriptionManager = SubscriptionManager.shared
     
     var body: some View {
         Button(action: action) {
@@ -294,6 +317,21 @@ struct SubscriptionOptionView: View {
                     Text(displayPrice)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
+                    
+                    // Add free trial badge for yearly subscription
+                    if product.productIdentifier == "com.budgetplanner.subscription.yearly" {
+                        HStack(spacing: 5) {
+                            Image(systemName: "gift")
+                                .foregroundColor(.blue)
+                                .font(.caption)
+                            
+                            Text("3-Day Free Trial")
+                                .font(.caption)
+                                .foregroundColor(.blue)
+                                .fontWeight(.medium)
+                        }
+                        .padding(.top, 3)
+                    }
                 }
                 
                 Spacer()
@@ -304,6 +342,14 @@ struct SubscriptionOptionView: View {
             .padding()
             .background(Color(.secondarySystemBackground))
             .cornerRadius(10)
+            .overlay(
+                Group {
+                    if product.productIdentifier == "com.budgetplanner.subscription.yearly" {
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.blue.opacity(0.5), lineWidth: 1.5)
+                    }
+                }
+            )
         }
         .buttonStyle(PlainButtonStyle())
     }
@@ -314,7 +360,7 @@ struct SubscriptionOptionView: View {
         case "com.budgetplanner.subscription.monthly":
             return "Monthly Premium"
         case "com.budgetplanner.subscription.yearly":
-            return "Yearly Premium (Save 16%)"
+            return "Yearly Premium (Save 16% + Free Trial)"
         default:
             return product.localizedTitle
         }

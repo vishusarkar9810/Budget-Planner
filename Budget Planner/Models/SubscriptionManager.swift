@@ -1,6 +1,7 @@
 import Foundation
 import StoreKit
 import Observation
+import UserNotifications
 
 // Enhanced error types for subscription failures
 enum SubscriptionError: Error, LocalizedError {
@@ -65,6 +66,10 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
     private(set) var isLoading: Bool = false
     private(set) var hasLifetimeAccess: Bool = false
     
+    // Free trial status
+    private(set) var isInFreeTrial: Bool = false
+    private(set) var freeTrialEndDate: Date?
+    
     // Error handling
     private(set) var errorMessage: String?
     private(set) var detailedError: SubscriptionError?
@@ -87,6 +92,22 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
         // Load subscription status from user defaults
         isSubscribed = UserDefaults.standard.bool(forKey: "isSubscribed")
         hasLifetimeAccess = UserDefaults.standard.bool(forKey: "hasLifetimeAccess")
+        
+        // Load free trial status
+        isInFreeTrial = UserDefaults.standard.bool(forKey: "isInFreeTrial")
+        if let endDateTimestamp = UserDefaults.standard.object(forKey: "freeTrialEndDate") as? Date {
+            freeTrialEndDate = endDateTimestamp
+            
+            // Check if free trial has expired
+            if let endDate = freeTrialEndDate, Date() > endDate {
+                isInFreeTrial = false
+                UserDefaults.standard.set(false, forKey: "isInFreeTrial")
+                UserDefaults.standard.removeObject(forKey: "freeTrialEndDate")
+            }
+        }
+        
+        // Check receipt for subscription status
+        verifySubscriptionStatus()
     }
     
     deinit {
@@ -114,6 +135,8 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
             errorMessage = nil
             detailedError = nil
             
+            // Use the standard StoreKit payment process for all products
+            // The App Store will handle the free trial for products with introductory offers
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(payment)
         } else {
@@ -153,7 +176,82 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
     
     // Check if user has premium access (either subscription or lifetime)
     var hasPremiumAccess: Bool {
-        return isSubscribed || hasLifetimeAccess
+        return isSubscribed || hasLifetimeAccess || isInFreeTrial
+    }
+    
+    // Get free trial remaining days
+    var freeTrialRemainingDays: Int? {
+        guard isInFreeTrial, let endDate = freeTrialEndDate else { return nil }
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day], from: Date(), to: endDate)
+        return components.day
+    }
+    
+    // Check if a product has a free trial offer
+    func hasFreeTrial(for product: SKProduct) -> Bool {
+        if #available(iOS 12.2, *) {
+            return product.introductoryPrice != nil
+        }
+        return false
+    }
+    
+    // Get free trial duration in days for a product
+    func freeTrialDuration(for product: SKProduct) -> Int {
+        if #available(iOS 12.2, *), let introPrice = product.introductoryPrice {
+            if introPrice.paymentMode == .freeTrial {
+                switch introPrice.subscriptionPeriod.unit {
+                case .day:
+                    return introPrice.subscriptionPeriod.numberOfUnits
+                case .week:
+                    return introPrice.subscriptionPeriod.numberOfUnits * 7
+                case .month:
+                    return introPrice.subscriptionPeriod.numberOfUnits * 30
+                case .year:
+                    return introPrice.subscriptionPeriod.numberOfUnits * 365
+                @unknown default:
+                    return 0
+                }
+            }
+        }
+        return 0
+    }
+    
+    // Format free trial duration
+    func formatFreeTrialDuration(for product: SKProduct) -> String {
+        let days = freeTrialDuration(for: product)
+        if days == 0 {
+            return ""
+        } else if days == 1 {
+            return "1-Day Free Trial"
+        } else {
+            return "\(days)-Day Free Trial"
+        }
+    }
+    
+    // Verify current subscription status
+    private func verifySubscriptionStatus() {
+        // In a real app, this would validate the receipt with Apple's servers
+        // For now, we'll rely on UserDefaults for the demo
+        
+        // Check if we need to refresh the receipt
+        if let receiptURL = Bundle.main.appStoreReceiptURL,
+           let receiptData = try? Data(contentsOf: receiptURL) {
+            // In a real app, you would send this receipt data to your server
+            // Your server would then validate with Apple's servers
+            print("Receipt data available: \(receiptData.count) bytes")
+            
+            // For demo purposes, we'll just check if receipt exists
+            if receiptData.count > 0 {
+                // Receipt exists, but we'll still rely on our stored values
+                // In a real app, you would validate the receipt properly
+            }
+        } else {
+            // No receipt found, refresh it
+            let request = SKReceiptRefreshRequest(receiptProperties: nil)
+            request.delegate = self
+            request.start()
+        }
     }
     
     // MARK: - SKProductsRequestDelegate
@@ -244,6 +342,39 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
                 self.isSubscribed = true
                 self.currentSubscription = self.product(for: productID)
                 
+                // Check if this is a free trial
+                if #available(iOS 12.2, *), 
+                   let product = self.product(for: productID),
+                   let introPrice = product.introductoryPrice,
+                   introPrice.paymentMode == .freeTrial {
+                    
+                    // Calculate trial end date based on the introductory price period
+                    let trialDays = self.freeTrialDuration(for: product)
+                    if trialDays > 0 {
+                        self.isInFreeTrial = true
+                        self.freeTrialEndDate = Calendar.current.date(byAdding: .day, value: trialDays, to: Date())
+                        
+                        // Save free trial status
+                        UserDefaults.standard.set(true, forKey: "isInFreeTrial")
+                        UserDefaults.standard.set(self.freeTrialEndDate, forKey: "freeTrialEndDate")
+                        
+                        // Schedule end of trial notification
+                        if let endDate = self.freeTrialEndDate {
+                            self.scheduleEndOfTrialNotification(endDate: endDate)
+                        }
+                    }
+                } else {
+                    // Clear free trial status if this is a direct purchase
+                    if self.isInFreeTrial {
+                        self.isInFreeTrial = false
+                        UserDefaults.standard.set(false, forKey: "isInFreeTrial")
+                        UserDefaults.standard.removeObject(forKey: "freeTrialEndDate")
+                    }
+                }
+                
+                // Save subscription status
+                UserDefaults.standard.set(true, forKey: "isSubscribed")
+                
                 // Update subscription status in AppSettings
                 AppSettings.shared.updateSubscriptionStatus(isSubscribed: true)
                 
@@ -271,6 +402,26 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
         
         // Finish the transaction
         SKPaymentQueue.default().finishTransaction(transaction)
+    }
+    
+    // Schedule notification for end of trial
+    private func scheduleEndOfTrialNotification(endDate: Date) {
+        let content = UNMutableNotificationContent()
+        content.title = "Free Trial Ending Soon"
+        content.body = "Your free trial of Budget Planner Premium will end tomorrow. Your subscription will continue automatically."
+        content.sound = UNNotificationSound.default
+        
+        // Schedule notification for 1 day before trial ends
+        let oneDayBefore = Calendar.current.date(byAdding: .day, value: -1, to: endDate)!
+        let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: oneDayBefore)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "trialEndingReminder", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error)")
+            }
+        }
     }
     
     private func handleFailed(_ transaction: SKPaymentTransaction) {
@@ -316,6 +467,9 @@ final class SubscriptionManager: NSObject, SKProductsRequestDelegate, SKPaymentT
             DispatchQueue.main.async {
                 self.isSubscribed = true
                 self.currentSubscription = self.product(for: productID)
+                
+                // Save subscription status
+                UserDefaults.standard.set(true, forKey: "isSubscribed")
                 
                 // Update subscription status in AppSettings
                 AppSettings.shared.updateSubscriptionStatus(isSubscribed: true)
