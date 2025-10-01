@@ -106,12 +106,12 @@ struct SettingsView: View {
                             Image(systemName: "crown.fill")
                                 .foregroundColor(.yellow)
                             
-                            Text(AppSettings.shared.isSubscribed ? "Premium Subscription Active" : "Upgrade to Premium")
+                            Text(AppSettings.shared.premiumFeaturesEnabled ? "Premium Subscription Active" : "Upgrade to Premium")
                                 .font(.headline)
                             
                             Spacer()
                             
-                            if AppSettings.shared.isSubscribed {
+                            if AppSettings.shared.premiumFeaturesEnabled {
                                 Text("Active")
                                     .font(.caption)
                                     .padding(5)
@@ -121,7 +121,7 @@ struct SettingsView: View {
                             }
                         }
                         
-                        if AppSettings.shared.isSubscribed {
+                        if AppSettings.shared.premiumFeaturesEnabled {
                             Text("Thank you for supporting Budget Planner! You have access to all premium features.")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
@@ -533,4 +533,4 @@ struct BudgetEditorSheet: View {
         }
         return true
     }
-} 
+}

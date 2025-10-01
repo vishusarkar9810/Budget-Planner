@@ -26,7 +26,7 @@ final class AppSettings {
     
     // Premium features access
     var premiumFeaturesEnabled: Bool {
-        return isSubscribed || hasLifetimeAccess
+        return SubscriptionManager.shared.hasPremiumAccess
     }
     
     // UserDefaults keys
@@ -267,4 +267,4 @@ final class AppSettings {
         // Save defaults
         saveSettings()
     }
-} 
+}

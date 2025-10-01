@@ -1,0 +1,128 @@
+{
+  "source": "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/CategoriesView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Categories",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 57
+        }
+      },
+      {
+        "comment": "",
+        "key": "Premium",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "Spending by Category",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 85
+        }
+      },
+      {
+        "comment": "",
+        "key": "Upgrade to Premium to see all categories",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 163
+        }
+      },
+      {
+        "comment": "",
+        "key": "Amount",
+        "location": {
+          "startingColumn": 39,
+          "startingLine": 114
+        }
+      },
+      {
+        "comment": "",
+        "key": "Amount",
+        "location": {
+          "startingColumn": 39,
+          "startingLine": 92
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 100
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 122
+        }
+      },
+      {
+        "comment": "",
+        "key": "Other",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 155
+        }
+      },
+      {
+        "comment": "",
+        "key": "All Categories",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 267
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld more categories",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 293
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unlock",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 301
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 372
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@ Transactions",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 390
+        }
+      },
+      {
+        "comment": "",
+        "key": "No transactions in this category",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 395
+        }
+      }
+    ]
+  },
+  "version": 1
+}

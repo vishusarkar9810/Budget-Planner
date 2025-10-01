@@ -27,14 +27,14 @@ struct CategoriesView: View {
                         CategoryChartSection(
                             model: model,
                             selectedCategory: $selectedCategory,
-                            isSubscribed: AppSettings.shared.isSubscribed,
+                            isSubscribed: AppSettings.shared.premiumFeaturesEnabled,
                             freeTierLimit: freeTierCategoryLimit
                         )
                         
                         CategoryListSection(
                             model: model,
                             selectedCategory: $selectedCategory,
-                            isSubscribed: AppSettings.shared.isSubscribed,
+                            isSubscribed: AppSettings.shared.premiumFeaturesEnabled,
                             freeTierLimit: freeTierCategoryLimit
                         )
                         
@@ -46,7 +46,7 @@ struct CategoriesView: View {
                         }
                         
                         // Show premium banner if not subscribed
-                        if !AppSettings.shared.isSubscribed {
+                        if !AppSettings.shared.premiumFeaturesEnabled {
                             PremiumBannerView(featureName: "unlimited categories")
                                 .padding(.top, 20)
                         }
@@ -57,7 +57,7 @@ struct CategoriesView: View {
             .navigationTitle("Categories")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    if !AppSettings.shared.isSubscribed {
+                    if !AppSettings.shared.premiumFeaturesEnabled {
                         Button {
                             showSubscriptionView = true
                         } label: {
@@ -410,4 +410,4 @@ struct CategoryTransactionsSection: View {
     private var categoryTransactions: [Transaction] {
         model.transactions(for: category)
     }
-} 
+}

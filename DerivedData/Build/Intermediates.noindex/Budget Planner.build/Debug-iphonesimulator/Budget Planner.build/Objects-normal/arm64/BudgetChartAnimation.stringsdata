@@ -1,0 +1,40 @@
+{
+  "source": "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/Animations/BudgetChartAnimation.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Monthly Budget",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 31
+        }
+      },
+      {
+        "comment": "",
+        "key": "$1,250 saved",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 60
+        }
+      },
+      {
+        "comment": "",
+        "key": "+23%",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 74
+        }
+      },
+      {
+        "comment": "",
+        "key": "vs last month",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 77
+        }
+      }
+    ]
+  },
+  "version": 1
+}

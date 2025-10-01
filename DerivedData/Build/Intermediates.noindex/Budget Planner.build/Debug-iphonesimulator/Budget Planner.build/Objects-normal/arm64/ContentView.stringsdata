@@ -1,0 +1,48 @@
+{
+  "source": "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Dashboard",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 28
+        }
+      },
+      {
+        "comment": "",
+        "key": "Transactions",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 34
+        }
+      },
+      {
+        "comment": "",
+        "key": "Categories",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 40
+        }
+      },
+      {
+        "comment": "",
+        "key": "Analysis",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 46
+        }
+      },
+      {
+        "comment": "",
+        "key": "Settings",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 52
+        }
+      }
+    ]
+  },
+  "version": 1
+}

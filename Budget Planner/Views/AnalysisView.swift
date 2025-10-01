@@ -62,7 +62,7 @@ struct AnalysisView: View {
                 .padding(.horizontal)
                 
                 ScrollView {
-                    if selectedAnalysisType.requiresPremium && !AppSettings.shared.isSubscribed {
+                    if selectedAnalysisType.requiresPremium && !AppSettings.shared.premiumFeaturesEnabled {
                         // Show premium feature overlay if not subscribed
                         VStack {
                             Spacer()
@@ -87,7 +87,7 @@ struct AnalysisView: View {
             .navigationTitle("Analysis")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    if !AppSettings.shared.isSubscribed {
+                    if !AppSettings.shared.premiumFeaturesEnabled {
                         Button {
                             showSubscriptionView = true
                         } label: {
@@ -720,4 +720,4 @@ struct CategoryAnalysisView: View {
     
     return AnalysisView()
         .environment(model)
-} 
+}

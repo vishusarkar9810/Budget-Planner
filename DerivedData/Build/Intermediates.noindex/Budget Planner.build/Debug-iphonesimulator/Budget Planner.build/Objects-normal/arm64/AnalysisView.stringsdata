@@ -1,0 +1,280 @@
+{
+  "source": "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/AnalysisView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Analysis",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 87
+        }
+      },
+      {
+        "comment": "",
+        "key": "Analysis Type",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 48
+        }
+      },
+      {
+        "comment": "",
+        "key": "Time Frame",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 56
+        }
+      },
+      {
+        "comment": "",
+        "key": "Premium",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 94
+        }
+      },
+      {
+        "comment": "",
+        "key": "Monthly Spending Trends",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 113
+        }
+      },
+      {
+        "comment": "",
+        "key": "No data available for the selected time frame",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 140
+        }
+      },
+      {
+        "comment": "",
+        "key": "Total Spent: %@",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 146
+        }
+      },
+      {
+        "comment": "",
+        "key": "Daily Average: %@",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 150
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 119
+        }
+      },
+      {
+        "comment": "",
+        "key": "Amount",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 120
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 125
+        }
+      },
+      {
+        "comment": "",
+        "key": "Amount",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 126
+        }
+      },
+      {
+        "comment": "",
+        "key": "Budget vs. Actual Comparison",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 300
+        }
+      },
+      {
+        "comment": "",
+        "key": "Budget",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 305
+        }
+      },
+      {
+        "comment": "",
+        "key": "Actual Spending",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 315
+        }
+      },
+      {
+        "comment": "",
+        "key": "Category",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 332
+        }
+      },
+      {
+        "comment": "",
+        "key": "Amount",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 333
+        }
+      },
+      {
+        "comment": "",
+        "key": "Category",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 338
+        }
+      },
+      {
+        "comment": "",
+        "key": "Amount",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 339
+        }
+      },
+      {
+        "comment": "",
+        "key": "Variance",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 347
+        }
+      },
+      {
+        "comment": "",
+        "key": "Budget Utilization",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 362
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%% of budget used",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 377
+        }
+      },
+      {
+        "comment": "",
+        "key": "Under Budget",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 355
+        }
+      },
+      {
+        "comment": "",
+        "key": "Over Budget",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 355
+        }
+      },
+      {
+        "comment": "",
+        "key": "Category Spending Analysis",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 435
+        }
+      },
+      {
+        "comment": "",
+        "key": "Spending Distribution by Category",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 440
+        }
+      },
+      {
+        "comment": "",
+        "key": "No data available for the selected time frame",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 457
+        }
+      },
+      {
+        "comment": "",
+        "key": "Amount",
+        "location": {
+          "startingColumn": 43,
+          "startingLine": 447
+        }
+      },
+      {
+        "comment": "",
+        "key": "Top Categories",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 469
+        }
+      },
+      {
+        "comment": "",
+        "key": "(%lld%%)",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 485
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@ Spending Trend",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 499
+        }
+      },
+      {
+        "comment": "",
+        "key": "No data available for this category in the selected time frame",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 512
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date",
+        "location": {
+          "startingColumn": 43,
+          "startingLine": 505
+        }
+      },
+      {
+        "comment": "",
+        "key": "Amount",
+        "location": {
+          "startingColumn": 43,
+          "startingLine": 506
+        }
+      }
+    ]
+  },
+  "version": 1
+}

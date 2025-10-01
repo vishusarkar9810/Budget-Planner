@@ -1,0 +1,24 @@
+{
+  "source": "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/TransactionsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Transactions",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 31
+        }
+      },
+      {
+        "comment": "",
+        "key": "Search transactions",
+        "location": {
+          "startingColumn": 52,
+          "startingLine": 42
+        }
+      }
+    ]
+  },
+  "version": 1
+}

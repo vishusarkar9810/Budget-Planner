@@ -1,0 +1,16 @@
+{
+  "source": "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Models/AnimationManager.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "GIF Animation",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 170
+        }
+      }
+    ]
+  },
+  "version": 1
+}
