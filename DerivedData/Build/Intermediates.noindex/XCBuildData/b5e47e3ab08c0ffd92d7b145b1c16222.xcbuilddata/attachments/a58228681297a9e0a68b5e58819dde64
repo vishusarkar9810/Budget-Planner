@@ -1,0 +1,308 @@
+{
+  "" : {
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Budget Planner-master.dia",
+    "emit-module-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Budget Planner-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Budget Planner-master-emit-module.dia",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Budget Planner-master.swiftdeps"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Budget_PlannerApp.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Budget_PlannerApp.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Budget_PlannerApp.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Budget_PlannerApp.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Budget_PlannerApp.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Budget_PlannerApp.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Budget_PlannerApp.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Budget_PlannerApp.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Budget_PlannerApp~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/ContentView.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Models/AnalysisViewModel.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisViewModel.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisViewModel.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisViewModel.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisViewModel.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisViewModel.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisViewModel.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisViewModel.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisViewModel~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Models/AnimationManager.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnimationManager.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnimationManager.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnimationManager.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnimationManager.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnimationManager.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnimationManager.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnimationManager.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnimationManager~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Models/AppReviewManager.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppReviewManager.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppReviewManager.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppReviewManager.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppReviewManager.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppReviewManager.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppReviewManager.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppReviewManager.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppReviewManager~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Models/AppSettings.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppSettings.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppSettings.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppSettings.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppSettings.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppSettings.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppSettings.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppSettings.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AppSettings~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Models/BudgetCategory.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetCategory.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetCategory.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetCategory.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetCategory.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetCategory.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetCategory.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetCategory.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetCategory~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Models/BudgetModel.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetModel.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetModel.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetModel.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetModel.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetModel.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetModel.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetModel.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetModel~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Models/BudgetPeriod.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPeriod.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPeriod.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPeriod.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPeriod.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPeriod.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPeriod.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPeriod.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPeriod~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Models/Currency.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Currency.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Currency.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Currency.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Currency.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Currency.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Currency.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Currency.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Currency~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Models/SubscriptionManager.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionManager.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionManager.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionManager.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionManager.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionManager.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionManager.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionManager.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionManager~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Models/Transaction.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Transaction.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Transaction.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Transaction.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Transaction.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Transaction.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Transaction.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Transaction.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/Transaction~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Models/TransactionExport.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionExport.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionExport.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionExport.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionExport.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionExport.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionExport.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionExport.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionExport~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/AddTransactionView.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AddTransactionView.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AddTransactionView.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AddTransactionView.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AddTransactionView.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AddTransactionView.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AddTransactionView.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AddTransactionView.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AddTransactionView~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/AnalysisView.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisView.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisView.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisView.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisView.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisView.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisView.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisView.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/AnalysisView~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/Animations/BudgetChartAnimation.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetChartAnimation.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetChartAnimation.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetChartAnimation.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetChartAnimation.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetChartAnimation.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetChartAnimation.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetChartAnimation.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetChartAnimation~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/Animations/BudgetPersonAnimation.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPersonAnimation.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPersonAnimation.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPersonAnimation.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPersonAnimation.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPersonAnimation.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPersonAnimation.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPersonAnimation.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/BudgetPersonAnimation~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/Animations/LoadingAnimation.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/LoadingAnimation.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/LoadingAnimation.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/LoadingAnimation.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/LoadingAnimation.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/LoadingAnimation.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/LoadingAnimation.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/LoadingAnimation.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/LoadingAnimation~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/Animations/TestimonialAnimation.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TestimonialAnimation.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TestimonialAnimation.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TestimonialAnimation.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TestimonialAnimation.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TestimonialAnimation.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TestimonialAnimation.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TestimonialAnimation.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TestimonialAnimation~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/Animations/WelcomeAnimation.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/WelcomeAnimation.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/WelcomeAnimation.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/WelcomeAnimation.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/WelcomeAnimation.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/WelcomeAnimation.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/WelcomeAnimation.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/WelcomeAnimation.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/WelcomeAnimation~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/CategoriesView.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/CategoriesView.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/CategoriesView.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/CategoriesView.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/CategoriesView.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/CategoriesView.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/CategoriesView.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/CategoriesView.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/CategoriesView~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/DashboardView.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/DashboardView.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/DashboardView.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/DashboardView.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/DashboardView.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/DashboardView.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/DashboardView.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/DashboardView.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/DashboardView~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/OnboardingCoordinator.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingCoordinator.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingCoordinator.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingCoordinator.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingCoordinator.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingCoordinator.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingCoordinator.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingCoordinator.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingCoordinator~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/OnboardingView.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingView.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingView.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingView.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingView.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingView.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingView.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingView.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/OnboardingView~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/PremiumBannerView.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/PremiumBannerView.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/PremiumBannerView.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/PremiumBannerView.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/PremiumBannerView.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/PremiumBannerView.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/PremiumBannerView.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/PremiumBannerView.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/PremiumBannerView~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/SettingsView.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SettingsView.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SettingsView.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SettingsView.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SettingsView.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SettingsView.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SettingsView.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SettingsView.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SettingsView~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/SubscriptionView.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionView.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionView.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionView.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionView.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionView.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionView.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionView.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/SubscriptionView~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/TransactionRow.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionRow.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionRow.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionRow.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionRow.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionRow.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionRow.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionRow.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionRow~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/Budget Planner/Views/TransactionsView.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionsView.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionsView.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionsView.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionsView.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionsView.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionsView.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionsView.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/TransactionsView~partial.swiftmodule"
+  },
+  "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/vishwajeetsarkar/Downloads/Cursor IDE/Budget Planner/Budget-Planner/DerivedData/Build/Intermediates.noindex/Budget Planner.build/Debug-iphonesimulator/Budget Planner.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}
